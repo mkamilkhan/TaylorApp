@@ -1,0 +1,66 @@
+.desh{
+  border: 1px solid green;
+}
+.fonts{
+  font-size: 13px;
+}
+.fonts-size{
+  font-size: 11px;
+}
+.bg-dark{
+  background-color: #473c43;
+}
+.txt-dark{
+  color: #473c43;
+}
+.bg-ornge{
+  background-color: #a4a4b0;
+}
+.txt-orang{
+  color: #35364d;
+}
+.bg-gray{
+background-color: #eaf0fb;
+}
+.widthb{
+width: 127px;
+}
+.input-Width{
+  width: 310px;
+}
+.inputdate-Width{
+  width: 147px;
+}
+.hight{
+  height: 100%;
+}
+.hightcart{
+  height: 377px;
+}
+.panalcolor{
+background-color: #304857;
+}
+.panalcolorHover:hover{
+background-color: #14222b;
+
+}
+.colordark{
+color: #14222b;
+}
+.usercolor{
+background-color: #14222b;
+
+}
+.orange{
+  background-color: #ffb81f;
+}
+.light-orange{
+  background-color: #fafafa;
+}
+.winaap{
+  width: 345px;
+}
+.winlambai{
+  width: 280px;
+}
+
