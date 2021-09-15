@@ -98,7 +98,7 @@ export default function Naap() {
                                         <p className="text-gray-700 border rounded-lg light-orange mt-1 p-3 font-bold">Bazoo</p>
                                     </div>
                                     <div className=" winlambai">
-                                        <p className="text-gray-700 border rounded-lg light-orange mt-1 p-3 font-bold">Teera</p>
+                                        <p className="text-gray-700 border rounded-lg light-orange mt-1 p-3 font-bold">Theera</p>
                                     </div>
                                     <div className="winlambai ">
                                         <p className="text-gray-700 border rounded-lg light-orange mt-1 p-3 font-bold">Kalar</p>
