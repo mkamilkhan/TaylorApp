@@ -6,11 +6,13 @@ import FeatherIcon from 'feather-icons-react';
 // import { useMemo } from 'react';
 import Searchbar from './searchbar';
 
-
+import EnglishForm from '../compenets/englishForm';
 export default function Orders() {
        const [searchValue, setSearchValue] = useState("");
+       // const [users, setUsers] = useState([]);
 
        const [users, setUsers] = useState([]);
+       const [user, setForm] = useState([]);
        const [show, setShow] = useState(false);
        const [dlt, setDlt] = useState([]);
        const [id, setId] = useState([]);
@@ -21,6 +23,12 @@ export default function Orders() {
 
                      const list = resp.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
                      setUsers(list);
+                     console.log(list);
+              })
+              db.collection('form').onSnapshot((resp) => {
+
+                     const list = resp.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+                     setForm(list);
                      console.log(list);
               })
        }, []);
@@ -40,9 +48,9 @@ export default function Orders() {
               })
        }
        return (
-              <div className="pb-16 light-orange">
+              <div className="h-screen  light-orange">
 
-                     <div className="w-full flex justify-center  p-2">
+                     <div className="w-full flex justify-center  p-4">
                             <Searchbar onSearch={setSearchValue} value={searchValue} />
                      </div>
 
@@ -52,12 +60,16 @@ export default function Orders() {
 
                             users.filter(filterNames).map((user, i) => (
                                    <div key={i} >
-                                          <div className="shadow-xl   mt-2 border bg-white mx-6 rounded-xl p-3">
+                                          <div className="shadow-xl   my-2 border bg-white mx-6 rounded-xl p-3">
                                                  <div className="flex fonts-size font-bold">
                                                         <div className="  w-full fonts-size p-4 font-bold">
-                                                               <div>
+                                                               <div className="flex items-center justify-between">
+
                                                                       <FeatherIcon className="p-1 border rounded-full light-orange-200 shadow-xl" icon="trash-2" color="red" onClick={() => delet(user.id)} />
+
+                                                                      <img src={user.image} className="border-2 border-yellow-300 rounded-full  w-12 h-12"></img>
                                                                </div>
+
                                                                <div className=" my-2 items-center flex ">
                                                                       <div className=" w-4/5 flex items-center ">
                                                                              <div>
@@ -124,9 +136,13 @@ export default function Orders() {
                                                                       </div>
                                                                       <div className="flex  w-full">
 
-                                                                             <div className="border light-orange rounded-xl ml-2 p-3 widthb justify-between flex">
+                                                                             <div className="border mx-2 light-orange rounded-xl w-1/2 p-3 justify-between flex">
                                                                                     <p className="">Pancha </p>
                                                                                     <p> {user.bt7}Inch</p>
+                                                                             </div>
+                                                                             <div className="border mx-2 light-orange rounded-xl w-1/2 p-3 justify-between flex">
+                                                                                    <p className="">Pancha </p>
+                                                                                    <p> {user.bt88}Inch</p>
                                                                              </div>
 
                                                                       </div>

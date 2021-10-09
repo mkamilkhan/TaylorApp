@@ -38,12 +38,13 @@ width: 127px;
   height: 377px;
 }
 .panalcolor{
-background-color: #304857;
+background-color: #333333
+;
 }
-.panalcolorHover:hover{
-background-color: #14222b;
+.bg-ratio :hover{
+background-color: aqua;
+}
 
-}
 .colordark{
 color: #14222b;
 }
@@ -64,3 +65,6 @@ background-color: #14222b;
   width: 280px;
 }
 
+.Login-button:hover{
+background-color: rgb(10, 46, 46);
+}

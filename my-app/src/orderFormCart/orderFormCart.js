@@ -82,7 +82,7 @@ export default function OrderFormCart() {
                             <form className="flex fonts-size font-bold">
 
 
-                                <select value={customerName} onChange={(e) => setCustomerName(e.target.value)} className="w-48 border rounded-md text-gray-700 light-orange  border-gray-300 fonts-size font-bold mx-2" >
+                                <select value={customerName} onChange={(e) => setCustomerName(e.target.value)} className="w-48 border   rounded-md text-gray-700 light-orange  border-gray-300 fonts-size font-bold mx-2" >
                                     <option> Name</option>
                                     {
 
@@ -94,16 +94,8 @@ export default function OrderFormCart() {
                                             <option> {user.customer} </option>
                                         ))
                                     }
-
-
-
-
                                 </select>
-
-
                                 <div className="bg-yellow-700 mx-2 p-3 fonts-size text-white rounded-md text-center text-xs font-bold w-24">
-
-
                                     <Link to="../pages/home">
                                         <p onClick={logout}>
 
@@ -117,17 +109,17 @@ export default function OrderFormCart() {
                         </div>
                     </div>
 
-                    <div className="flex mx-2 my-2  text-gray-700 fonts-size font-bold w-full">
+                    <div className="flex mx-2 my-3  text-gray-700 fonts-size font-bold w-full">
                         <div className="  ">
                             <p>Date</p>
-                            <input min="2021-01-01" max="2023-12-31" type="date" value={date} onChange={(e) => setDate(e.target.value)} className="border rounded-md fonts-size light-orange font-bold border-gray-300 p-1 text-gray-700 inputdate-Width " placeholder=""></input>
+                            <input min="2021-01-01" max="2023-12-31" type="date" value={date} onChange={(e) => setDate(e.target.value)} className="border rounded-md fonts-size light-orange font-bold border-gray-300 p-3 text-gray-700 inputdate-Width " placeholder=""></input>
                         </div>
                         <div className=" text-gray-700 ">
-                            <p className="ml-2">Due Date</p>
+                            <p className="ml-2 ">Due Date</p>
 
                             <input type="date" value={dueDate} onChange={(e) => setDueDate(e.target.value)} name="trip-start"
 
-                                min="2021-01-01" max="2023-12-31" className=" p-1 text-gray-700 rounded-md fonts-size font-bold light-orange border border-gray-300  inputdate-Width mx-2" ></input>
+                                min="2021-01-01" max="2023-12-31" className=" p-2 text-gray-700 rounded-md fonts-size font-bold light-orange border border-gray-300  inputdate-Width p-3 mx-2" ></input>
                         </div>
 
 
@@ -139,7 +131,7 @@ export default function OrderFormCart() {
                             <form className="  mx-2">
                                 <p className="">Type of Cloth</p>
 
-                                <select value={typeOfCloth} onChange={(e) => setTypeOfCloth(e.target.value)} className="rounded-md fonts-size text-green-600 fonts-size text-xs font-bold border light-orange p-2 inputdate-Width">
+                                <select value={typeOfCloth} onChange={(e) => setTypeOfCloth(e.target.value)} className="rounded-md fonts-size text-green-600 fonts-size text-xs font-bold border light-orange p-3 inputdate-Width">
 
                                     <option >T/cloth</option>
                                     <option>shirt</option>
@@ -151,7 +143,7 @@ export default function OrderFormCart() {
 
                                 <p className="">Number of Suits</p>
 
-                                <input value={numberOfSuits} onChange={(e) => setNumberOfSuits(e.target.value)} type="text" className="rounded-md border-gray-300 border  p-2 inputdate-Width"></input>
+                                <input value={numberOfSuits} onChange={(e) => setNumberOfSuits(e.target.value)} type="text" className="rounded-md border-gray-300 border  p-3 inputdate-Width"></input>
                             </div>
                         </div>
 
@@ -159,17 +151,17 @@ export default function OrderFormCart() {
                     <div className="flex text-gray-700 fonts-size font-bold mx-2 my-3 w-full">
                         <div className=" ">
                             <p>Total Amount</p>
-                            <input value={totalAmount} onChange={(e) => setTotalAmount(e.target.value)} type="" className="rounded-md fonts-size font-bold border border-gray-300 p-1 w-20" placeholder=""></input>
+                            <input value={totalAmount} onChange={(e) => setTotalAmount(e.target.value)} type="" className="rounded-md fonts-size font-bold border border-gray-300 p-3 w-20" placeholder=""></input>
                         </div>
                         <div className=" mx-1">
                             <p>Paid Amount</p>
 
-                            <input value={paidAmount} onChange={(e) => setPaidAmount(e.target.value)} type="" className="rounded-md fonts-size font-bold border border-gray-300 p-1 w-20" placeholder=""></input>
+                            <input value={paidAmount} onChange={(e) => setPaidAmount(e.target.value)} type="" className="rounded-md fonts-size font-bold border border-gray-300 p-3 w-20" placeholder=""></input>
                         </div>
                         <div className=" mx-2">
                             <p>Remaining Amount</p>
 
-                            <input value={remainingAmount} onChange={(e) => setRemainingAmount(e.target.value)} type="" className="rounded-md fonts-size font-bold border border-gray-300 p-1 w-32" placeholder=""></input>
+                            <input value={remainingAmount} onChange={(e) => setRemainingAmount(e.target.value)} type="" className="rounded-md fonts-size font-bold border border-gray-300 p-3 w-32" placeholder=""></input>
 
                         </div>
 
@@ -179,7 +171,7 @@ export default function OrderFormCart() {
                         <form className="  mx-2">
 
 
-                            <select value={progress} onChange={(e) => setProgress(e.target.value)} className="rounded-md text-green-600 fonts-size text-xs font-bold border border-gray-300 light-orange p-2 inputdate-Width">
+                            <select value={progress} onChange={(e) => setProgress(e.target.value)} className="rounded-md text-green-600 fonts-size text-xs font-bold border border-gray-300 light-orange p-3 inputdate-Width">
 
                                 <option>selection</option>
                                 <option>In Progress</option>
@@ -189,7 +181,7 @@ export default function OrderFormCart() {
                             </select>
                         </form>
 
-                        <button onClick={handledata} type="button" className="w-24 ml-2 fonts-size font-bold rounded-md border border-gray-300 orange text-white font-bold p-2">save</button>
+                        <button onClick={handledata} type="button" className="w-24 ml-2 fonts-size font-bold rounded-md border border-gray-300 orange text-white font-bold p-3">save</button>
 
                     </div>
                 </div>

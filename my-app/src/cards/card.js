@@ -45,7 +45,7 @@ export default function Card() {
 
     const delet = (id) => {
         db.collection('orders').doc(id).delete().then((resp) => {
-            console.log(resp, "woekkk")
+            console.log(resp, "delete")
         })
     }
 

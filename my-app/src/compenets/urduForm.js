@@ -1,19 +1,20 @@
-
+// import React from 'react'
 import { db, app } from "../fire"
-import App from '../App.css';
 
-
-import Orders from './naap'
-import OrderCard from './orderCard';
-import OrderForm from "./orderForm";
+import Orders from '../pages/naap'
+import OrderCard from '../pages/orderCard';
+import OrderForm from "../pages/orderForm";
 import React, { useState, useEffect } from 'react'
-
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Redirect,
+    Link
+} from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-
-
-
-export default function Naap() {
+function UrduForm() {
     const [option1, setOption1] = useState('');
     const [option2, setOption2] = useState('');
     const [option3, setOption3] = useState('');
@@ -29,8 +30,6 @@ export default function Naap() {
     const [users, setUsers] = useState([]);
     const [user, setForm] = useState([]);
     const [imageUrl, setImageUrl] = useState('');
-
-
     const save = () => {
         handledata()
     }
@@ -101,10 +100,11 @@ export default function Naap() {
                         </div>
                         <div className="text-xs flex  justify-between">
                             <div className="flex text-gray-700 fonts-size font-bold items-center">
-                                <p>S.No</p>
+                                <p>سلسلہ وار نمبر</p>
                                 <input type="text" maxLength="4" value={serialNumber} onChange={(e) => setSerialNumber(e.target.value)} className=" mx-1  border w-16 rounded font-bold fonts-size  border-gray-400 p-1" placeholder="S.no"></input>
 
                             </div>
+
 
                         </div>
                         <div className=" mt-2 fonts ">
@@ -112,19 +112,30 @@ export default function Naap() {
                             <div className="flex items-center  w-full justify-between">
                                 <div className=" fonts-size w-2/3">
 
-                                    <input type="text" placeholder=" Customer Name" value={customerName} onChange={(e) => setCustomername(e.target.value)} className="border p-3 w-full   outline-none rounded border-gray-2 00 text-xs "></input>
+                                    <input type="text" placeholder=" گاہک نام" value={customerName} onChange={(e) => setCustomername(e.target.value)} className="border p-3 w-full   outline-none rounded border-gray-2 00 text-xs "></input>
                                 </div>
                                 <div className="fonts-size w-2/3  mx-1">
 
-                                    <input type="number" placeholder="Customer Number" className=" p-3 outline-none border w-full  border-gray-200  text-xs rounded" value={optionInch} onChange={(e) => setOptionInch(e.target.value)}></input>
+                                    <input type="number" placeholder="گاہک نمبر" className=" p-3 outline-none border w-full  border-gray-200  text-xs rounded" value={optionInch} onChange={(e) => setOptionInch(e.target.value)}></input>
                                 </div>
                             </div>
                             <div className="mt-4">
                                 <div className="flex w-full bg-gray-200  font-bold  p-4 text-yellow-600 text-sm rounded justify-between  ">
-                                    <p>NAAP</p>
-                                    <p className="mr-4">INCH</p>
+                                    <p>پیمائِش</p>
+                                    <p className="mr-4">اِنچ</p>
                                 </div>
-
+                                <div className="justify-end p-3 flex">
+                                    <div className="flex items-center">
+                                        <p className="w-3  bg-yellow-600 border h-3 rounded-full"></p>{/* <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" /> */}
+                                        <p className="mx-1 font-bold text-yellow-500">اردو</p>
+                                    </div>
+                                    <div className="flex items-center mx-4">
+                                        <Link to="/englishForm">
+                                            <p className="w-3 hover:bg-yellow-600 border  h-3 rounded-full"></p>
+                                        </Link>
+                                        <p className="mx-1 font-bold text-yellow-500 ">English</p>
+                                    </div>
+                                </div>
                             </div>
                             <form className="mx-1 m-3" onSubmit={handledata}>
 
@@ -133,7 +144,7 @@ export default function Naap() {
                                         <div className="w-full flex ">
                                             <div className="w-1/2  flex">
                                                 {/* <p className="text-gray-700 w-full border rounded-lg light-orange mt-1 p-3 font-bold">Lambai</p> */}
-                                                <p className="text-gray-700 border w-full rounded-lg light-orange mt-1 p-3 font-bold">Kamees</p>
+                                                <p className="text-gray-700 border w-full rounded-lg light-orange mt-1 p-3 font-bold">لمبائی</p>
 
                                                 <select className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " onChange={(e) => setOption1(e.target.value)}>
                                                     {
@@ -144,7 +155,7 @@ export default function Naap() {
                                                 </select>
                                             </div>
                                             <div className="w-1/2 mx-2 flex">
-                                                <p className="text-gray-700 w-full border rounded-lg light-orange mt-1 p-3 font-bold">Bazoo</p>
+                                                <p className="text-gray-700 w-full border rounded-lg light-orange mt-1 p-3 font-bold">کاف</p>
 
                                                 <select className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " onChange={(e) => setOption2(e.target.value)}>
                                                     {
@@ -158,7 +169,7 @@ export default function Naap() {
                                         </div>
                                         <div className="w-full flex ">
                                             <div className="w-1/2 flex">
-                                                <p className="text-gray-700 w-full border rounded-lg light-orange mt-1 p-3 font-bold">Lambai</p>
+                                                <p className="text-gray-700 w-full border rounded-lg light-orange mt-1 p-3 font-bold">آستین</p>
 
                                                 <select className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " onChange={(e) => setOption3(e.target.value)}>
                                                     {
@@ -170,7 +181,7 @@ export default function Naap() {
                                             </div>
                                             <div className="w-1/2 mx-2 flex">
                                                 {/* <p className="text-gray-700 w-full border rounded-lg light-orange mt-1 p-3 font-bold">Bazoo</p> */}
-                                                <p className="text-gray-700 border rounded-lg w-full light-orange mt-1 p-3 font-bold">Theera</p>
+                                                <p className="text-gray-700 border rounded-lg w-full light-orange mt-1 p-3 font-bold">کندھا</p>
 
                                                 <select className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " onChange={(e) => setOption4(e.target.value)}>
                                                     {
@@ -185,7 +196,7 @@ export default function Naap() {
                                         <div className="w-full flex ">
                                             <div className="w-1/2 flex">
                                                 {/* <p className="text-gray-700 w-full border rounded-lg light-orange mt-1 p-3 font-bold">Lambai</p> */}
-                                                <p className="text-gray-700 border rounded-lg w-full light-orange mt-1 p-3 font-bold">Kalar</p>
+                                                <p className="text-gray-700 border rounded-lg w-full light-orange mt-1 p-3 font-bold">لنگوٹی</p>
 
                                                 <select className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " onChange={(e) => setOption5(e.target.value)}>
                                                     {
@@ -196,7 +207,7 @@ export default function Naap() {
                                                 </select>
                                             </div>
                                             <div className="w-1/2 mx-2 flex">
-                                                <p className="text-gray-700 border w-full rounded-lg light-orange mt-1 p-3 font-bold">Chatee</p>
+                                                <p className="text-gray-700 border w-full rounded-lg light-orange mt-1 p-3 font-bold">چھاتی</p>
 
                                                 <select className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " onChange={(e) => setOption6(e.target.value)}>
                                                     {
@@ -210,7 +221,7 @@ export default function Naap() {
                                         </div>
                                         <div className="w-full flex ">
                                             <div className="w-1/2 flex">
-                                                <p className="text-gray-700 border rounded-lg w-full light-orange mt-1 p-3 font-bold">Gheera</p>
+                                                <p className="text-gray-700 border rounded-lg w-full light-orange mt-1 p-3 font-bold">کمر کا حصہ</p>
 
                                                 <select className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " onChange={(e) => setOption7(e.target.value)}>
                                                     {
@@ -221,7 +232,7 @@ export default function Naap() {
                                                 </select>
                                             </div>
                                             <div className="w-1/2 mx-2 flex">
-                                                <p className="text-gray-700 border rounded-lg w-full light-orange mt-1 p-3 font-bold">Pancha</p>
+                                                <p className="text-gray-700 border rounded-lg w-full light-orange mt-1 p-3 font-bold">گردن</p>
 
                                                 <select className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " onChange={(e) => setOption8(e.target.value)}>
                                                     {
@@ -277,6 +288,7 @@ export default function Naap() {
                 {/* <Tabs></Tabs> */}
             </TabList>
         </Tabs>
-
     )
 }
+
+export default UrduForm

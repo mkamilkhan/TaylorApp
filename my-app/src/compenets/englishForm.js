@@ -1,19 +1,20 @@
-
+// import React from 'react'
 import { db, app } from "../fire"
-import App from '../App.css';
 
-
-import Orders from './naap'
-import OrderCard from './orderCard';
-import OrderForm from "./orderForm";
+import Orders from '../pages/naap'
+import OrderCard from '../pages/orderCard';
+import OrderForm from "../pages/orderForm";
 import React, { useState, useEffect } from 'react'
-
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Redirect,
+    Link
+} from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-
-
-
-export default function Naap() {
+function EnglishForm() {
     const [option1, setOption1] = useState('');
     const [option2, setOption2] = useState('');
     const [option3, setOption3] = useState('');
@@ -29,8 +30,6 @@ export default function Naap() {
     const [users, setUsers] = useState([]);
     const [user, setForm] = useState([]);
     const [imageUrl, setImageUrl] = useState('');
-
-
     const save = () => {
         handledata()
     }
@@ -124,7 +123,21 @@ export default function Naap() {
                                     <p>NAAP</p>
                                     <p className="mr-4">INCH</p>
                                 </div>
+                                <div className="justify-end p-3 flex">
+                                    <div className="flex items-center">
+                                        <Link to="/urduForm">
+                                            <p className="w-3  hover:bg-yellow-600 border h-3 rounded-full"></p>{/* <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" /> */}
+                                        </Link>
 
+                                        <p className="mx-1 font-bold text-yellow-500">اردو</p>
+                                    </div>
+                                    <div className="flex items-center mx-4">
+                                        <Link to="/englishForm">
+                                            <p className="w-3 bg-yellow-600 border   h-3 rounded-full"></p>
+                                        </Link>
+                                        <p className="mx-1 font-bold text-yellow-500">English</p>
+                                    </div>
+                                </div>
                             </div>
                             <form className="mx-1 m-3" onSubmit={handledata}>
 
@@ -277,6 +290,7 @@ export default function Naap() {
                 {/* <Tabs></Tabs> */}
             </TabList>
         </Tabs>
-
     )
 }
+
+export default EnglishForm

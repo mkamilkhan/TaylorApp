@@ -57,25 +57,26 @@ export default function Login() {
                         </Link>
                         <h1 className="font-bold text-gray-300">Register</h1>
                     </div>
-                    <h1 className="font-bold mt-4 text-gray-700">Login</h1>
+                    <h1 className="font-bold mt-4 text-gray-700 ml-2">Login</h1>
 
-                    <div className="p-3 text-gray-700 fonts-size font-bold ">
-                        <div>Email</div>
-                        <input className="border rounded-md font-bold w-64 p-3" type="text" placeholder="email" onChange={(e) => setEmail(e.target.value)} value={email}></input>
+                    <div className="p-2 text-gray-700 fonts-size font-bold ">
+
+                        <input className="border rounded-md font-bold w-full p-5" type="text" placeholder="Email" onChange={(e) => setEmail(e.target.value)} value={email}></input>
                         <p className="text-red-400">{errors}</p>
 
                     </div>
-                    <div className="text-gray-700 fonts-size font-bold  p-3">
-                        <div>Password</div>
+                    <div className="text-gray-700 fonts-size font-bold  p-2">
 
-                        <input className="border rounded-md  font-bold p-3 w-64" type="password" placeholder="password" onChange={(e) => setPassword(e.target.value)} value={password}></input>
+
+                        <input className="border rounded-md  font-bold p-5 w-full" type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} value={password}></input>
                         <p className="text-red-400">{errors}</p>
                     </div>
 
-                    <div className="mt-6 p-3 ">
+                    <div className="mt-6  p-3 ">
 
-                        <button className="border rounded-md  panalcolor w-32 text-white p-3 font-bold text-xs" onClick={signin}>
+                        <button className="border rounded-md flex items-center  panalcolor  text-white p-3 font-bold text-xs" onClick={signin}>
                             Login
+                            <FeatherIcon Link to="/login" icon="arrow-right" color="white" size="12" className="mx-1 " />
 
                         </button>
 

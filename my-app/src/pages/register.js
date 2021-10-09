@@ -1,5 +1,5 @@
 import React, { useState, } from 'react'
-import { app, db } from "../fire"
+import { app, db, storage } from "../fire"
 import FeatherIcon from 'feather-icons-react';
 import Assets from '../assets/tt.jpeg'
 
@@ -15,7 +15,8 @@ export default function Register() {
     const [password, setPassword] = useState('');
     const [adress, setadress] = useState('');
     const [contect, setContect] = useState('');
-
+    const [error, setError] = useState('')
+    const [imageUrl, setImageUrl] = useState('');
 
     const signUP = () => {
 
@@ -26,10 +27,13 @@ export default function Register() {
 
         }).catch((err) => {
             {
+                const error = err.message
+                setError(error)
                 console.log(err, "wrong password")
             }
             ;
         })
+
         // localStorage.setItem('login', JSON.stringify({ email, password }));
         // console.log(localStorage, "khan")
 
@@ -40,9 +44,20 @@ export default function Register() {
                 useremail: email,
                 userpassword: password,
                 useradress: adress,
-                usercontect: contect
+                usercontect: contect,
+                // image: imageUrl
+
             }
         )
+    }
+    const upload = async (e) => {
+        const file = e.target.files[0];
+        console.log("sjkla")
+        const storageRef = app.storage().ref("images").child(file.name)
+        await storageRef.put(file)
+        storageRef.getDownloadURL().then((url) => {
+            setImageUrl(url)
+        })
     }
 
     return (
@@ -64,52 +79,52 @@ export default function Register() {
                 <div className="flex justify-center">
 
                     <img src={Assets} className="  h-32 "></img>
+                    {/* <img src={imageUrl} className=" desh h-32 "></img> */}
                 </div>
 
                 <div className="p-2 text-gray-700 fonts-size font-bold ">
 
-                    <div className="text-xs  ">UserName</div>
+                    {/* <div className="text-xs  ">UserName</div> */}
 
-                    <input className="border rounded-md font-bold w-64 p-3" type="text" placeholder="username" onChange={(e) => setName(e.target.value)} value={name}></input>
+                    <input className="border rounded-md font-bold w-full p-4" type="text" placeholder="Username" onChange={(e) => setName(e.target.value)} value={name}></input>
                 </div>
                 <div className="p-2 text-gray-700 fonts-size font-bold ">
-                    <div>Email</div>
-                    <input className="border rounded-md  font-bold w-64 p-3" type="text" placeholder="email" onChange={(e) => setEmail(e.target.value)} value={email}></input>
+                    {/* <div>Email</div> */}
+                    <input className="border rounded-md  font-bold w-full p-4" type="text" placeholder="Email" onChange={(e) => setEmail(e.target.value)} value={email}></input>
+                    {/* <p className="text-red-400">{error}</p> */}
 
                 </div>
                 <div className="text-gray-700 fonts-size font-bold  p-2">
-                    <div>Password</div>
+                    {/* <div>Password</div> */}
 
-                    <input className="border rounded-md  font-bold p-3 w-64" type="password" placeholder="password" onChange={(e) => setPassword(e.target.value)} value={password}></input>
+                    <input className="border rounded-md  font-bold p-4 w-full" type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} value={password}></input>
+                    {/* <p className="text-red-400">{error}</p> */}
+
                 </div>
                 <div className="p-2 text-gray-700 fonts-size font-bold ">
-                    <div>Address</div>
+                    {/* <div>Address</div> */}
 
-                    <input className="border rounded-md  font-bold w-64 p-3" type="text" placeholder="Address" onChange={(e) => setadress(e.target.value)} value={adress}></input>
+                    <input className="border rounded-md  font-bold w-full p-4" type="text" placeholder="Address" onChange={(e) => setadress(e.target.value)} value={adress}></input>
                 </div>
-                <div className="p-2 text-gray-700 fonts-size font-bold ">
-                    <div>Contect</div>
+                <div className="p-2 text-gray-700   fonts-size font-bold ">
+                    {/* <div>Contect</div> */}
 
-                    <input className="border rounded-md font-bold w-64 p-3" type="number" placeholder="number" onChange={(e) => setContect(e.target.value)} value={contect}></input>
+                    <input className="border rounded-md font-bold w-full p-4" type="number" placeholder="Number" onChange={(e) => setContect(e.target.value)} value={contect}></input>
+
                 </div>
-                <div className="  p-3">
+                <div className=" flex p-3">
 
 
-                    <button className="text-white rounded-md   items-center flex panalcolor fonts-size font-bold border p-3 w-24" onClick={signUP}>
+                    <button className="text-white rounded-md   flex panalcolor fonts-size font-bold border p-3 w-24" onClick={signUP}>
 
-                        <p className=""> Register</p>
-                        <Link to="/login">
+                        <Link to="/login" className="flex font-bold items-center ">
+                            <p className=""> Register</p>
 
                             <FeatherIcon Link to="/login" icon="arrow-right" color="white" size="12" className="mx-1 " />
                         </Link>
 
                     </button>
-
-
-
-
-
-
+                    {/* <input onChange={upload} type="file" className=" rounded  p-2"></input> */}
                 </div>
             </div>
         </div>

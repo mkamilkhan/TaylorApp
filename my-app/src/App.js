@@ -2,7 +2,8 @@
 
 import Login from './pages/Login'
 import Home from './pages/home'
-
+import EnglishForm from './compenets/englishForm';
+import UrduForm from './compenets/urduForm';
 import Register from './pages/register'
 
 import React from 'react';
@@ -34,6 +35,12 @@ export default function App() {
 
             <Route path={"/home"} component={Home}>
               <Home />
+            </Route>
+            <Route path={"/englishForm"} component={EnglishForm}>
+              <EnglishForm />
+            </Route>
+            <Route path={"/urduForm"} component={UrduForm}>
+              <UrduForm />
             </Route>
             <Route path="/">
               <Register />
