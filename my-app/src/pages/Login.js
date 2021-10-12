@@ -23,7 +23,7 @@ export default function Login() {
             setdata(data)
             console.log(data, "respose1")
             if (email, password) {
-                history.push("/home")
+                history.push("/urduForm")
                 console.log(data, "respose2")
             }
             else {
@@ -76,7 +76,7 @@ export default function Login() {
 
                         <button className="border rounded-md flex items-center  panalcolor  text-white p-3 font-bold text-xs" onClick={signin}>
                             Login
-                            <FeatherIcon Link to="/login" icon="arrow-right" color="white" size="12" className="mx-1 " />
+                            <FeatherIcon Link to="/urduForm" icon="arrow-right" color="white" size="12" className="mx-1 " />
 
                         </button>
 

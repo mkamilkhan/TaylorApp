@@ -1,10 +1,13 @@
 // import React from 'react'
 import { db, app } from "../fire"
-
+import Tabs from "../compenets/tabs";
+// import useInfiniteScroll from 'react-infinite-scroll-hook';
 import Orders from '../pages/naap'
 import OrderCard from '../pages/orderCard';
 import OrderForm from "../pages/orderForm";
+
 import React, { useState, useEffect } from 'react'
+// import React from 'react'
 import {
     BrowserRouter as Router,
     Switch,
@@ -12,42 +15,117 @@ import {
     Redirect,
     Link
 } from "react-router-dom";
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
+
+// import 'react-tabs/style/react-tabs.css';
 function EnglishForm() {
-    const [option1, setOption1] = useState('');
-    const [option2, setOption2] = useState('');
-    const [option3, setOption3] = useState('');
-    const [option4, setOption4] = useState('');
-    const [option5, setOption5] = useState('');
-    const [option6, setOption6] = useState('');
-    const [option7, setOption7] = useState('');
-    const [option8, setOption8] = useState('');
-    const [optionInch, setOptionInch] = useState('');
-    const [customerName, setCustomername] = useState('');
-    const [serialNumber, setSerialNumber] = useState('');
-    const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50];
+    const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50];
+    const arr = [1 / 2, 1 / 3, 1 / 4, 1 / 5, 1 / 6, 1 / 7, 1 / 8, 1 / 9, 1 / 10, 1 / 11, 1 / 12, 1 / 13, 1 / 14];
+
+    const [CustomerNumber, setCustomerNumber] = useState('');
+    const [CustomerName, setCustomerName] = useState('');
+    const [SerialNumber, setSerialNumber] = useState('');
+    const [Address, setAddress] = useState('');
+    const [Lenght, setLenght] = useState('');
+    const [LenghtInch, setLenghtInch] = useState('');
+    const [Shoulder, setShoulder] = useState('');
+    const [ShoulderInch, setShoulderInch] = useState('');
+    const [Neck, setNeck] = useState('');
+    const [NeckInch, setNeckInch] = useState('');
+    const [Chest, setChest] = useState('');
+    const [ChestInch, setChestInch] = useState('');
+    const [Waist, setWaist] = useState('');
+    const [WaistInch, setWaistInch] = useState('');
+    const [Gheera, setGheera] = useState('');
+    const [GheeraInch, setGheeraInch] = useState('');
+    const [Gool, setGool] = useState('');
+    const [Choras, setChoras] = useState('');
+    const [Arm, setArm] = useState('');
+    const [ArmInch, setArmInch] = useState('');
+    const [Kaaf, setKaaf] = useState('');
+    const [KaafInch, setKaafInch] = useState('');
+    const [Kaafwidth, setKaafwidth] = useState('');
+    const [ArmGoal, setArmGoal] = useState('');
+    const [ArmGoalInch, setArmGoalInch] = useState('');
+    const [ArmGoalInchInch, setArmGoalInchInch] = useState('');
+    const [Collar, setCollar] = useState('');
+    const [CollarInch, setCollarInch] = useState('');
+    const [CollarInchCollor, setCollarInchCollor] = useState('');
+    const [Baen, setBaen] = useState('');
+    const [BaenInch, setBaenInch] = useState('');
+    const [BaenInchBean, setBaenInchBean] = useState('');
+    const [ShalwarLenght, setShalwarLenght] = useState('');
+    const [ShalwarLenghtInch, setShalwarLenghtInch] = useState('');
+    const [ShalwarLenghtInchShalwar, setShalwarLenghtInchShalwar] = useState('');
+    const [ShalwarGheera, setShalwarGheera] = useState('');
+    const [ShalwarGheeraInch, setShalwarGheeraInch] = useState('');
+    const [ShalwarGheeraInchShalwar, setShalwarGheeraInchShalwar] = useState('');
+    const [ShalwarPaincha, setShalwarPaincha] = useState('');
+    const [ShalwarPainchaInch, setShalwarPainchaInch] = useState('');
+    const [ShalwarPainchaInchShalwar, setShalwarPainchaInchShalwar] = useState('');
+    const [Front, setFront] = useState('');
+    const [FrontInch, setFrontInch] = useState('');
+    const [Side, setSide] = useState('');
+    const [SideInch, setSideInch] = useState('');
+    const [Shalwar, setShalwar] = useState('');
+
     const [users, setUsers] = useState([]);
     const [user, setForm] = useState([]);
     const [imageUrl, setImageUrl] = useState('');
     const save = () => {
-        handledata()
+        Handledata()
     }
-    const handledata = () => {
-        db.collection("naap").add({
-            bt1: option1,
-            bt2: option2,
-            bt3: option3,
-            bt4: option4,
-            bt5: option5,
-            bt6: option6,
-            bt7: option7,
-            bt88: option8,
-            bt8: serialNumber,
-            phone: optionInch,
+    const Handledata = () => {
+        db.collection("englsihMeasurements").add({
+            customerName: CustomerName,
+            customerNumber: CustomerNumber,
+            address: Address,
+            serialNumber: SerialNumber,
+            lenght: Lenght,
+            lenghtInch: LenghtInch,
+            shalwarGheera: ShalwarGheera,
+            shalwar: Shalwar,
+            shalwarGheeraInchShalwar: ShalwarGheeraInchShalwar,
+            shalwarPaincha: ShalwarPaincha,
+            side: Side,
+            sideInch: SideInch,
+            front: Front,
+            frontInch: FrontInch,
+            shalwarPainchaInch: ShalwarPainchaInch,
+            shalwarGheeraInch: ShalwarGheeraInch,
+            shalwarPainchaInchShalwar: ShalwarPainchaInchShalwar,
+            shalwarLenghtInchShalwar: ShalwarLenghtInchShalwar,
+            shalwarLenghtInch: ShalwarLenghtInch,
+            shalwarLenght: ShalwarLenght,
+            baenInchBean: BaenInchBean,
+            baenInch: BaenInch,
+            baen: Baen,
+            collarInchCollor: CollarInchCollor,
+            collarInch: CollarInch,
+            collar: Collar,
+            armGoalInchInch: ArmGoalInchInch,
+            armGoalInch: ArmGoalInch,
+            armGoal: ArmGoal,
+            kaafwidth: Kaafwidth,
+            kaafInch: KaafInch,
+            kaaf: Kaaf,
+            armInch: ArmInch,
+            arm: Arm,
+            choras: Choras,
+            Gool: Gool,
+            gheeraInch: GheeraInch,
+            gheera: Gheera,
+            waistInch: WaistInch,
+            waist: Waist,
+            chestInch: ChestInch,
+            chest: Chest,
+            neckInch: NeckInch,
+            neck: Neck,
+            shoulderInch: ShoulderInch,
+            shoulder: Shoulder,
+            front: Front,
+            frontInch: FrontInch,
             image: imageUrl,
 
-            customer: customerName,
         })
             .then((resp) => {
                 console.log("working: ", resp);
@@ -80,217 +158,584 @@ function EnglishForm() {
             setImageUrl(url)
         })
     }
+
+
     return (
-        <Tabs>
+        <div className="mb-12 ">
 
-            <TabPanel >
-
-                <div>
-
-                    <div className=" shadow-xl  border p-2 pt-2 bg-white rounded">
-                        <div className="mb-3 panalcolor justify-around flex desh">
-                            <p className="  p-3 font-bold text-yellow-600">Wellcome To Tailor App</p>
-                            {
-                                user.map((res) => (
-
-                                    <img src={res.image} className="border-2 border-yellow-600 rounded-full  w-12 h-12"></img>
-                                ))
-                            }
-
-                        </div>
-                        <div className="text-xs flex  justify-between">
-                            <div className="flex text-gray-700 fonts-size font-bold items-center">
-                                <p>S.No</p>
-                                <input type="text" maxLength="4" value={serialNumber} onChange={(e) => setSerialNumber(e.target.value)} className=" mx-1  border w-16 rounded font-bold fonts-size  border-gray-400 p-1" placeholder="S.no"></input>
-
-                            </div>
-
-                        </div>
-                        <div className=" mt-2 fonts ">
-
-                            <div className="flex items-center  w-full justify-between">
-                                <div className=" fonts-size w-2/3">
-
-                                    <input type="text" placeholder=" Customer Name" value={customerName} onChange={(e) => setCustomername(e.target.value)} className="border p-3 w-full   outline-none rounded border-gray-2 00 text-xs "></input>
-                                </div>
-                                <div className="fonts-size w-2/3  mx-1">
-
-                                    <input type="number" placeholder="Customer Number" className=" p-3 outline-none border w-full  border-gray-200  text-xs rounded" value={optionInch} onChange={(e) => setOptionInch(e.target.value)}></input>
-                                </div>
-                            </div>
-                            <div className="mt-4">
-                                <div className="flex w-full bg-gray-200  font-bold  p-4 text-yellow-600 text-sm rounded justify-between  ">
-                                    <p>NAAP</p>
-                                    <p className="mr-4">INCH</p>
-                                </div>
-                                <div className="justify-end p-3 flex">
-                                    <div className="flex items-center">
-                                        <Link to="/urduForm">
-                                            <p className="w-3  hover:bg-yellow-600 border h-3 rounded-full"></p>{/* <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" /> */}
-                                        </Link>
-
-                                        <p className="mx-1 font-bold text-yellow-500">اردو</p>
-                                    </div>
-                                    <div className="flex items-center mx-4">
-                                        <Link to="/englishForm">
-                                            <p className="w-3 bg-yellow-600 border   h-3 rounded-full"></p>
-                                        </Link>
-                                        <p className="mx-1 font-bold text-yellow-500">English</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <form className="mx-1 m-3" onSubmit={handledata}>
-
-                                <div className="flex">
-                                    <div className=" w-full">
-                                        <div className="w-full flex ">
-                                            <div className="w-1/2  flex">
-                                                {/* <p className="text-gray-700 w-full border rounded-lg light-orange mt-1 p-3 font-bold">Lambai</p> */}
-                                                <p className="text-gray-700 border w-full rounded-lg light-orange mt-1 p-3 font-bold">Kamees</p>
-
-                                                <select className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " onChange={(e) => setOption1(e.target.value)}>
-                                                    {
-                                                        arr.map((user) => (
-                                                            <option >{user}</option>
-                                                        ))
-                                                    }
-                                                </select>
-                                            </div>
-                                            <div className="w-1/2 mx-2 flex">
-                                                <p className="text-gray-700 w-full border rounded-lg light-orange mt-1 p-3 font-bold">Bazoo</p>
-
-                                                <select className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " onChange={(e) => setOption2(e.target.value)}>
-                                                    {
-                                                        arr.map((user) => (
-                                                            <option >{user}</option>
-                                                        ))
-                                                    }
-                                                </select>
-                                            </div>
-
-                                        </div>
-                                        <div className="w-full flex ">
-                                            <div className="w-1/2 flex">
-                                                <p className="text-gray-700 w-full border rounded-lg light-orange mt-1 p-3 font-bold">Lambai</p>
-
-                                                <select className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " onChange={(e) => setOption3(e.target.value)}>
-                                                    {
-                                                        arr.map((user) => (
-                                                            <option >{user}</option>
-                                                        ))
-                                                    }
-                                                </select>
-                                            </div>
-                                            <div className="w-1/2 mx-2 flex">
-                                                {/* <p className="text-gray-700 w-full border rounded-lg light-orange mt-1 p-3 font-bold">Bazoo</p> */}
-                                                <p className="text-gray-700 border rounded-lg w-full light-orange mt-1 p-3 font-bold">Theera</p>
-
-                                                <select className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " onChange={(e) => setOption4(e.target.value)}>
-                                                    {
-                                                        arr.map((user) => (
-                                                            <option >{user}</option>
-                                                        ))
-                                                    }
-                                                </select>
-                                            </div>
-
-                                        </div>
-                                        <div className="w-full flex ">
-                                            <div className="w-1/2 flex">
-                                                {/* <p className="text-gray-700 w-full border rounded-lg light-orange mt-1 p-3 font-bold">Lambai</p> */}
-                                                <p className="text-gray-700 border rounded-lg w-full light-orange mt-1 p-3 font-bold">Kalar</p>
-
-                                                <select className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " onChange={(e) => setOption5(e.target.value)}>
-                                                    {
-                                                        arr.map((user) => (
-                                                            <option >{user}</option>
-                                                        ))
-                                                    }
-                                                </select>
-                                            </div>
-                                            <div className="w-1/2 mx-2 flex">
-                                                <p className="text-gray-700 border w-full rounded-lg light-orange mt-1 p-3 font-bold">Chatee</p>
-
-                                                <select className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " onChange={(e) => setOption6(e.target.value)}>
-                                                    {
-                                                        arr.map((user) => (
-                                                            <option >{user}</option>
-                                                        ))
-                                                    }
-                                                </select>
-                                            </div>
-
-                                        </div>
-                                        <div className="w-full flex ">
-                                            <div className="w-1/2 flex">
-                                                <p className="text-gray-700 border rounded-lg w-full light-orange mt-1 p-3 font-bold">Gheera</p>
-
-                                                <select className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " onChange={(e) => setOption7(e.target.value)}>
-                                                    {
-                                                        arr.map((user) => (
-                                                            <option >{user}</option>
-                                                        ))
-                                                    }
-                                                </select>
-                                            </div>
-                                            <div className="w-1/2 mx-2 flex">
-                                                <p className="text-gray-700 border rounded-lg w-full light-orange mt-1 p-3 font-bold">Pancha</p>
-
-                                                <select className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " onChange={(e) => setOption8(e.target.value)}>
-                                                    {
-                                                        arr.map((user) => (
-                                                            <option >{user}</option>
-                                                        ))
-                                                    }
-                                                </select>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div>
-
-                        </div>
-                        <div className="justify-center  mb-12 flex p-2">
-                            <button type="button" className="panalcolor w-32  text-xs rounded-lg  p-3 text-white font-bold rounded-lg  border" onClick={save}>SAVE
-                            </button>
-                            <input onChange={upload} type="file" className=" rounded  p-2"></input>
-
-                        </div>
-
-                    </div>
+            < div className="bg-gray-800  " >
 
 
+                <div className="p-4 bg-yellow-500 flex border">
+                    <p className="text-yellow-800 text-lg  font-bold">Measurements Of Customer</p>
                 </div>
-            </TabPanel>
+                <div className="mx-2">
+                    <div className="flex  mt-2 w-full">
 
-            <TabPanel>
-                <Orders />
+                        <div className="w-1/2 mx-1">
+                            <input type="number" maxLength="4" value={SerialNumber} onChange={(e) => setSerialNumber(e.target.value)} className="border-b-2 bg-gray-800 font-bold text-xs outline-none text-yellow-500  hover:border-yellow-500 p-3 w-full" placeholder="S.No"></input>
+                        </div>
+                        <div className="w-1/2 mx-1">
+                            <input type="text" value={CustomerName} onChange={(e) => setCustomerName(e.target.value)} className=" border-b-2 bg-gray-800 font-bold text-xs outline-none text-yellow-500  hover:border-yellow-500 w-full p-3" placeholder="Name"></input>
 
-            </TabPanel>
-            <TabPanel>
-                <OrderCard />
+                        </div>
+                    </div>
+                    <div className="flex  mt-2 w-full">
 
-            </TabPanel>
-            <TabPanel>
-                <OrderForm />
+                        <div className="w-1/2 mx-1">
+                            <input type="number" value={CustomerNumber} onChange={(e) => setCustomerNumber(e.target.value)} className="bg-gray-800 border-b-2 font-bold text-xs outline-none text-yellow-500  hover:border-yellow-500 w-full p-3" placeholder="Mobile Number"></input>
+                        </div>
+                        <div className="w-1/2 mx-1">
+                            <input type="text" value={Address} onChange={(e) => setAddress(e.target.value)} className="border-b-2 bg-gray-800 font-bold text-xs outline-none text-yellow-500  hover:border-yellow-500 p-3 w-full" placeholder="City/Village "></input>
 
-            </TabPanel>
+                        </div>
+                    </div>
+                    <form onSubmit={Handledata} className="p-2 text-gray-200">
+                        <div className=" p-2 flex justify-end">
 
-            <TabList className="flex text-center panalcolor mt-12 fixed w-full bottom-0 p-2 rounded text-white font-bold">
-                <Tab className=" p-3 w-1/2">Home</Tab>
+                            <div className="flex items-center">
+                                <Link to="/urduForm">
+                                    <p className="w-3  hover:bg-yellow-600 border h-3 rounded-full"></p>
+                                </Link>
+                                <p className="mx-1 font-bold text-yellow-500">  اردو</p>
 
-                <Tab className=" w-1/2 p-3">Naap</Tab>
-                <Tab className="w-1/2 p-3 ">Orders</Tab>
-                <Tab className="w-1/2 p-3 ">OrdersForm</Tab>
+                            </div>
+                            <div className="flex items-center mx-4">
+                                <Link to="/englishForm">
+                                    <p className="w-3 border bg-yellow-600   h-3 rounded-full"></p>
+                                </Link>
+                                <p className="mx-1 font-bold text-yellow-500">English</p>
 
-                {/* <Tabs></Tabs> */}
-            </TabList>
-        </Tabs>
+                            </div>
+                        </div>
+                        <div className="font-bold text-yellow-500 m-2 text-md">
+                            <p>Measurements (inch)</p>
+
+                        </div>
+
+
+
+                        <div className="flex font-bold p-1 text-xs w-full items-center justify-between ">
+
+                            <p>Lenght:</p>
+                            <div className="flex ">
+                                <select onChange={(e) => setLenght(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+
+                                    <option >Inch</option>
+                                    {
+                                        data.map((user) => (
+                                            <option >{user}</option>
+                                        ))
+                                    }
+
+                                </select>
+                                <select onChange={(e) => setLenghtInch(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+
+
+                                    <option >1/2</option>
+                                    <option >1/3</option>
+                                    <option >1/4</option>
+                                    <option >1/5</option>
+
+                                </select>
+                            </div>
+
+                        </div>
+                        <div className="flex font-bold p-1 text-xs w-full items-center justify-between ">
+                            <p>Shoulder:</p>
+                            <div className="flex ">
+                                <select onChange={(e) => setShoulder(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                    <option >Inch</option>
+                                    {
+                                        data.map((user) => (
+                                            <option >{user}</option>
+                                        ))
+                                    }
+
+                                </select>
+                                <select onChange={(e) => setShoulderInch(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+
+
+                                    <option >1/2</option>
+                                    <option >1/3</option>
+                                    <option >1/4</option>
+                                    <option >1/5</option>
+
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div className="flex font-bold p-1 text-xs w-full items-center justify-between ">
+                            <p>Neck:</p>
+                            <div className="flex ">
+                                <select onChange={(e) => setNeck(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                    <option >Inch</option>
+                                    {
+                                        data.map((user) => (
+                                            <option >{user}</option>
+                                        ))
+                                    }
+                                </select>
+                                <select onChange={(e) => setNeckInch(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+
+
+                                    <option >1/3</option>
+                                    <option >1/2</option>
+                                    <option >1/4</option>
+                                    <option >1/5</option>
+
+                                </select>
+                            </div>
+
+                        </div>
+                        <div className="flex font-bold text-xs p-1 w-full items-center justify-between ">
+                            <p>Chest:</p>
+                            <div className="flex ">
+                                <select onChange={(e) => setChest(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+
+                                    <option >Inch</option>
+                                    {
+                                        data.map((user) => (
+                                            <option >{user}</option>
+                                        ))
+                                    }
+                                </select>
+                                <select onChange={(e) => setChestInch(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+
+
+                                    <option >1/2</option>
+                                    <option >1/3</option>
+                                    <option >1/4</option>
+                                    <option >1/5</option>
+
+                                </select>
+                            </div>
+
+                        </div>
+                        <div className="flex font-bold text-xs p-1 w-full items-center justify-between ">
+                            <p>Waist:</p>
+                            <div className="flex ">
+                                <select onChange={(e) => setWaist(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                    <option >Inch</option>
+                                    {
+                                        data.map((user) => (
+                                            <option >{user}</option>
+                                        ))
+                                    }
+
+
+
+                                </select>
+                                <select onChange={(e) => setWaistInch(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+
+
+                                    <option >1/2</option>
+                                    <option >1/3</option>
+                                    <option >1/4</option>
+                                    <option >1/5</option>
+
+                                </select>
+                            </div>
+
+                        </div>
+                        <div className=" rounded-md">
+                            <div className="flex p-1 font-bold text-xs w-full items-center justify-between ">
+
+                                <p className="font-bold ml-4 text-yellow-500">Gheera:</p>
+                                <div className="flex ">
+                                    <select onChange={(e) => setGheera(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                        <option >Inch</option>
+                                        {
+                                            data.map((user) => (
+                                                <option >{user}</option>
+                                            ))
+                                        }
+                                    </select>
+                                    <select onChange={(e) => setGheeraInch(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+
+
+                                        <option >1/2</option>
+                                        <option >1/3</option>
+                                        <option >1/4</option>
+                                        <option >1/5</option>
+
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div >
+                                <form className="flex p-2 items-center ">
+
+                                    <div className="flex items-center font-bold text-xs ml-8">
+                                        <input onChange={(e) => setGool(e.target.value)} className="mx-2" type="radio" name="fav_language" value="HTML" />
+                                        <p>Gool</p>
+                                    </div>
+                                    <div className="flex items-center font-bold text-xs mx-2">
+                                        <input onChange={(e) => setChoras(e.target.value)} className="mx-2" type="radio" name="fav_language" value="CSS" />
+                                        <p>Choras</p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div className="flex font-bold text-xs  p-1 w-full items-center justify-between ">
+                            <p>Arm:</p>
+                            <div className="flex ">
+                                <select onChange={(e) => setArm(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+
+                                    <option >Inch</option>
+                                    {
+                                        data.map((user) => (
+                                            <option >{user}</option>
+                                        ))
+                                    }
+                                </select>
+                                <select onChange={(e) => setArmInch(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+
+
+                                    <option >1/2</option>
+                                    <option >1/3</option>
+                                    <option >1/4</option>
+                                    <option >1/5</option>
+
+                                </select>
+                            </div>
+
+                        </div>
+                        <div className=" border rounded-xl items-center ">
+
+                            <div className=" p-1">
+
+                                <form className=" items-center">
+
+                                    <div className="flex  items-center justify-between  font-bold text-xs ">
+                                        <div className="flex">
+                                            <input onChange={(e) => setKaaf(e.target.value)} className=" m-2" type="radio" name="fav_language" />
+                                            <div className="">
+
+                                                <p className="">Kaaf:</p>
+                                                <p>Kaaf-width</p>
+                                            </div>
+                                        </div>
+                                        <div className="flex  ">
+                                            <select onChange={(e) => setKaafInch(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                <option >Inch</option>
+                                                {
+                                                    data.map((user) => (
+                                                        <option >{user}</option>
+                                                    ))
+                                                }
+
+                                            </select>
+                                            <select onChange={(e) => setKaafwidth(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+
+
+                                                <option >1/2</option>
+                                                <option >1/3</option>
+                                                <option >1/4</option>
+                                                <option >1/5</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center justify-between font-bold text-xs ">
+
+                                        <div className="flex">
+                                            <input onChange={(e) => setArmGoal(e.target.value)} className=" m-2" type="radio" name="fav_language" value="HTML" />
+                                            <div className="">
+
+                                                <p>Arm</p>
+                                                <p>Arm Goal</p>
+                                            </div>
+                                        </div>
+                                        <div className="flex ">
+                                            <select onChange={(e) => setArmGoalInch(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                <option >Inch</option>
+                                                {
+                                                    data.map((user) => (
+                                                        <option >{user}</option>
+                                                    ))
+                                                }
+
+                                            </select>
+                                            <select onChange={(e) => setArmGoalInchInch(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+
+
+                                                <option >1/2</option>
+                                                <option >1/3</option>
+                                                <option >1/4</option>
+                                                <option >1/5</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div className="   items-center ">
+
+                            <div className=" p-1">
+
+                                <div className=" items-center">
+                                    <form>
+
+                                        <div className="flex  items-center justify-between  font-bold text-xs ">
+                                            <div className="flex ">
+                                                <input onChange={(e) => setCollar(e.target.value)} className="mx-2" type="radio" name="fav_language" value="HTML" />
+                                                <p className="">Collar:</p>
+                                            </div>
+                                            <div className="flex  ">
+                                                <select onChange={(e) => setCollarInch(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+
+                                                    <option >Inch</option>
+                                                    {
+                                                        data.map((user) => (
+                                                            <option >{user}</option>
+                                                        ))
+                                                    }
+
+                                                </select>
+                                                <select onChange={(e) => setCollarInchCollor(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+
+
+                                                    <option >1/2</option>
+                                                    <option >1/3</option>
+                                                    <option >1/4</option>
+                                                    <option >1/5</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center justify-between font-bold text-xs ">
+                                            <div className="flex">
+                                                <input onChange={(e) => setBaen(e.target.value)} className="mx-2" type="radio" name="fav_language" value="CSS" />
+
+                                                <p>Baen:</p>
+                                            </div>
+                                            <div className="flex ">
+
+                                                <select onChange={(e) => setBaenInch(e.target.value)} className="light-orange border mx-1  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                    <option >Inch</option>
+                                                    {
+                                                        data.map((user) => (
+                                                            <option >{user}</option>
+                                                        ))
+                                                    }
+
+                                                </select>
+                                                <select onChange={(e) => setBaenInchBean(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                    <option >1/2</option>
+                                                    <option >1/3</option>
+                                                    <option >1/4</option>
+                                                    <option >1/5</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                    <form className="border p-1 my-2 rounded-xl">
+
+                                        <div className="flex items-center justify-between font-bold text-xs ">
+                                            <div className="flex">
+                                                <input onChange={(e) => setShalwarLenght(e.target.value)} className="mx-2" type="radio" name="fav_language" value="CSS" />
+
+                                                <p>Shalwar Lenght:</p>
+                                            </div>
+                                            <div className="flex ">
+                                                <select onChange={(e) => setShalwarLenghtInch(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                    <option >Inch</option>
+                                                    {
+                                                        data.map((user) => (
+                                                            <option >{user}</option>
+                                                        ))
+                                                    }
+
+                                                </select>
+                                                <select onChange={(e) => setShalwarLenghtInchShalwar(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                    <option >1/2</option>
+                                                    <option >1/3</option>
+                                                    <option >1/4</option>
+                                                    <option >1/5</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center justify-between font-bold text-xs ">
+                                            <div className="flex">
+                                                <input onChange={(e) => setShalwarGheera(e.target.value)} className="mx-2" type="radio" name="fav_language" value="CSS" />
+
+                                                <p>Shalwar Gheera:</p>
+                                            </div>
+                                            <div className="flex ">
+                                                <select onChange={(e) => setShalwarGheeraInch(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                    <option >Inch</option>
+                                                    {
+                                                        data.map((user) => (
+                                                            <option >{user}</option>
+                                                        ))
+                                                    }
+
+                                                </select>
+                                                <select onChange={(e) => setShalwarGheeraInchShalwar(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                    <option >1/2</option>
+                                                    <option >1/3</option>
+                                                    <option >1/4</option>
+                                                    <option >1/5</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center justify-between font-bold text-xs ">
+                                            <div className="flex">
+                                                <input onChange={(e) => setShalwarPaincha(e.target.value)} className="mx-2" type="radio" name="fav_language" value="CSS" />
+
+                                                <p>Shalwar Paincha:</p>
+                                            </div>
+                                            <div className="flex ">
+                                                <select onChange={(e) => setShalwarPainchaInch(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                    <option >Inch</option>
+                                                    {
+                                                        data.map((user) => (
+                                                            <option >{user}</option>
+                                                        ))
+                                                    }
+
+                                                </select>
+                                                <select onChange={(e) => setShalwarPainchaInchShalwar(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                    <option >1/2</option>
+                                                    <option >1/3</option>
+                                                    <option >1/4</option>
+                                                    <option >1/5</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div className=" rounded-xl p-1">
+                                        <div>
+                                            <div className="font-bold  text-yellow-500">
+                                                <p>Pockets:</p>
+                                            </div>
+                                            <div>
+                                                <div className="flex font-bold text-xs  p-1 w-full items-center justify-between ">
+                                                    <p className="ml-8">Front:</p>
+                                                    <div className="flex ">
+                                                        <select onChange={(e) => setFront(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+
+                                                            <option >Inch</option>
+                                                            {
+                                                                data.map((user) => (
+                                                                    <option >{user}</option>
+                                                                ))
+                                                            }
+                                                        </select>
+                                                        <select onChange={(e) => setFrontInch(e.target.value)} className="light-orange border   p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+
+
+                                                            <option >1/2</option>
+                                                            <option >1/3</option>
+                                                            <option >1/4</option>
+                                                            <option >1/5</option>
+
+                                                        </select>
+                                                    </div>
+
+                                                </div>
+                                                <div className="flex font-bold text-xs  p-1 w-full items-center justify-between ">
+                                                    <p className="ml-8">Side:</p>
+                                                    <div className="flex ">
+                                                        <select onChange={(e) => setSide(e.target.value)} className="light-orange border mx-1  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+
+                                                            <option >Inch</option>
+                                                            {
+                                                                data.map((user) => (
+                                                                    <option >{user}</option>
+                                                                ))
+                                                            }
+                                                        </select>
+                                                        <select onChange={(e) => setSideInch(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+
+
+                                                            <option >1/2</option>
+                                                            <option >1/3</option>
+                                                            <option >1/4</option>
+                                                            <option >1/5</option>
+
+                                                        </select>
+                                                    </div>
+
+                                                </div>
+                                                <div className="flex font-bold text-xs  p-1 w-full items-center justify-between ">
+                                                    <p className="ml-8">Shalwar:</p>
+                                                    <div className="flex ">
+                                                        <select onChange={(e) => setShalwar(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+
+                                                            <option >Inch</option>
+                                                            {
+                                                                data.map((user) => (
+                                                                    <option >{user}</option>
+                                                                ))
+                                                            }
+                                                        </select>
+                                                        <select className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+
+
+                                                            <option >1/2</option>
+                                                            <option >1/3</option>
+                                                            <option >1/4</option>
+                                                            <option >1/5</option>
+
+                                                        </select>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <Link to="/englishCard" className="flex w-full items-center">
+                            <div className="  p-2 border border-yellow-700 rounded-lg w-full text-center bg-yellow-500 m-4">
+
+                                <button className="font-bold p-2  " onClick={save}>Submit</button>
+                            </div>
+                            <img src={imageUrl} className="rounded-full border border-yellow-700 w-12 h-12" />
+
+                        </Link>
+                        <div className="p-2 my-2 bg-white ">
+
+                            <input onChange={upload} type="file" className="border w-48 rounded  p-2"></input>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <Tabs />
+        </div >
+
     )
 }
-
 export default EnglishForm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

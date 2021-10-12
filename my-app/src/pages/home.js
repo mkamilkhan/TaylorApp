@@ -7,7 +7,7 @@ import React from 'react';
 import EnglishForm from '../compenets/englishForm';
 import UrduForm from '../compenets/urduForm';
 import Naap from "./naapInput"
-
+import UrduCard from '../compenets/urduCard';
 
 function Home() {
 
@@ -20,7 +20,7 @@ function Home() {
 
             {/* <Orders /> */}
             {/* <Tabss /> */}
-            <UrduForm />
+            <urduForm />
         </div>
 
     )

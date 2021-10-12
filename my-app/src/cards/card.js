@@ -1,11 +1,8 @@
-// import React from 'react'
 import React, { useEffect, useState } from 'react'
 import FeatherIcon from 'feather-icons-react';
-// import OrderFormCart from '../orderFormCart/orderFormCart';
-import Assets from '../assets/cloth.jpeg';
 import { db } from "../fire";
 import Searchbar from '../pages/searchbar';
-
+import Tabs from '../compenets/tabs';
 export default function Card() {
     const [isOpen, setIsOpen] = useState()
     const [users, setUsers] = useState([]);
@@ -54,15 +51,15 @@ export default function Card() {
 
 
     return (
-        <div className=" light-orange w-full pb-16 ">
-            <div className="w-full flex justify-center  p-2">
+        <div className=" bg-yellow-500 h-screen w-full pb-16 ">
+            <div className="w-full flex justify-center  p-4">
                 <Searchbar onSearch={setSearchValue} value={searchValue} />
             </div>
 
             {
                 users.filter(filterNames).map((user) => (
 
-                    <div className="p-6 font-bold rounded-xl m-4 shadow-xl fonts-size bg-white ">
+                    <div className="p-6 mx-6 font-bold rounded-xl m-4 shadow-xl fonts-size bg-white ">
                         <div>
                             <FeatherIcon className="p-1 border rounded-full bg-gray-200 shadow-xl" icon="trash-2" color="red" onClick={() => delet(user.id)} />
                         </div>
@@ -70,7 +67,7 @@ export default function Card() {
 
                             <div className=" font-bold ">
                                 <div>
-                                    <div className="">
+                                    <div >
                                         <p className="p-1 bg-gray text-green-500 font-bold px-3 rounded-full">{user.progresss}</p>
                                     </div>
                                 </div>
@@ -80,19 +77,17 @@ export default function Card() {
                             <div >
 
                                 <FeatherIcon icon="chevron-down" color="gray" onClick={() => setIsOpen(!isOpen)} />
+                                {/* <img src={data.image} className="border-2 border-yellow-300 rounded-full  w-12 h-12"></img> */}
 
                             </div>
                         </div>
                         <div >
 
-                            <div className="flex my-2 rounded-md border light-orange  p-3  text-gray-600 justify-between">
+                            <div className="flex my-2 rounded-md  light-orange  p-3  text-gray-600 justify-between">
                                 <div className="">
                                     <p>Name: {user.customer}</p>
                                 </div>
-                                {/* <div>
-                                    <img src={Assets} className=" w-6 border border-xl border-gray-400 h-6 rounded-full "></img>
 
-                                </div> */}
                             </div>
 
 
@@ -105,12 +100,12 @@ export default function Card() {
                                     <div className="flex text-gray-600 justify-between ">
 
 
-                                        <div className="w-full rounded-md   border light-orange p-3 flex">
+                                        <div className="w-full rounded-md    light-orange p-3 flex">
                                             <p className="w-1/2 ">Date: {user.dates}</p>
                                             <p className=" w-1/2 ">DueDate: {user.dueDates}</p>
                                         </div>
                                     </div>
-                                    <div className="flex my-2 border  rounded-md light-orange  p-3  text-gray-600 justify-between ">
+                                    <div className="flex my-2   rounded-md light-orange  p-3  text-gray-600 justify-between ">
                                         <div>
                                             <p>T/Cloths: {user.typeOfCloths}</p>
 
@@ -120,7 +115,7 @@ export default function Card() {
 
                                         </div>
                                     </div>
-                                    <div className="flex border rounded-md  light-orange  p-3  text-gray-600 justify-between  mt-4">
+                                    <div className="flex  rounded-md  light-orange  p-3  text-gray-600 justify-between  mt-4">
 
                                         <div>
                                             <p>Total</p>
@@ -143,6 +138,9 @@ export default function Card() {
                 )
                 )
             }
+            <div>
+                <Tabs />
+            </div>
         </div>
     )
 }

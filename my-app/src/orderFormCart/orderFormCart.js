@@ -5,10 +5,8 @@ import {
     Route,
     Link
 } from "react-router-dom";
-// import Home from '../pages/home';
+import Tabs from '../compenets/tabs';
 import { useEffect, useState } from 'react'
-import { Redirect } from 'react-router-dom';
-// import Assets from '../assets/taab.jpeg'
 import { app, db } from "../fire"
 // import FeatherIcon from 'feather-icons-react';
 export default function OrderFormCart() {
@@ -180,12 +178,18 @@ export default function OrderFormCart() {
 
                             </select>
                         </form>
+                        <Link to="/orderCard">
+                            {/* <FeatherIcon className="p-1   ml-2 light-orange-200 shadow-xl" icon="book" color="orange" /> */}
 
-                        <button onClick={handledata} type="button" className="w-24 ml-2 fonts-size font-bold rounded-md border border-gray-300 orange text-white font-bold p-3">save</button>
+                            {/* <p>Order</p> */}
+                            <button onClick={handledata} type="button" className="w-24 ml-2 fonts-size font-bold rounded-md border border-gray-300 orange text-white font-bold p-3">save</button>
+                        </Link>
 
                     </div>
                 </div>
             </div>
+
+            <Tabs />
         </div>
 
     )
