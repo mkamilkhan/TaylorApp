@@ -222,7 +222,7 @@ function UrduForm() {
                             <div className="flex font-bold p-1 text-xs w-full items-center justify-between ">
 
                                 <div className="flex ">
-                                    <select onChange={(e) => setLenght(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                    <select onChange={(e) => setLenght(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
                                         <option >آدھا انچ</option>
                                         {
                                             arr.map((user) => (
@@ -232,7 +232,7 @@ function UrduForm() {
 
 
                                     </select>
-                                    <select onChange={(e) => setLenghtInch(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                    <select onChange={(e) => setLenghtInch(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
 
 
                                         <option >(انچ)</option>
@@ -249,7 +249,7 @@ function UrduForm() {
                             </div>
                             <div className="flex font-bold p-1 text-xs w-full items-center justify-between ">
                                 <div className="flex ">
-                                    <select onChange={(e) => setShoulder(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                    <select onChange={(e) => setShoulder(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
 
                                         <option >آدھا انچ</option>
                                         {
@@ -258,7 +258,7 @@ function UrduForm() {
                                             ))
                                         }
                                     </select>
-                                    <select onChange={(e) => setShoulderInch(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                    <select onChange={(e) => setShoulderInch(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
 
 
                                         <option >(انچ)</option>
@@ -275,7 +275,7 @@ function UrduForm() {
 
                             <div className="flex font-bold p-1 text-xs w-full items-center justify-between ">
                                 <div className="flex ">
-                                    <select onChange={(e) => setNeck(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                    <select onChange={(e) => setNeck(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
                                         <option >آدھا انچ</option>
                                         {
                                             arr.map((user) => (
@@ -283,7 +283,7 @@ function UrduForm() {
                                             ))
                                         }
                                     </select>
-                                    <select onChange={(e) => setNeckInch(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                    <select onChange={(e) => setNeckInch(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
                                         <option >(انچ)</option>
                                         {
                                             data.map((user) => (
@@ -298,7 +298,7 @@ function UrduForm() {
                             </div>
                             <div className="flex font-bold text-xs p-1 w-full items-center justify-between ">
                                 <div className="flex ">
-                                    <select onChange={(e) => setChest(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                    <select onChange={(e) => setChest(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
                                         <option >آدھا انچ</option>
                                         {
                                             arr.map((user) => (
@@ -306,7 +306,7 @@ function UrduForm() {
                                             ))
                                         }
                                     </select>
-                                    <select onChange={(e) => setChestInch(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                    <select onChange={(e) => setChestInch(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
 
 
                                         <option >(انچ)</option>
@@ -322,7 +322,7 @@ function UrduForm() {
                             </div>
                             <div className="flex font-bold text-xs p-1 w-full items-center justify-between ">
                                 <div className="flex ">
-                                    <select onChange={(e) => setWaist(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                    <select onChange={(e) => setWaist(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
 
 
                                         <option >آدھا انچ</option>
@@ -333,7 +333,7 @@ function UrduForm() {
                                         }
 
                                     </select>
-                                    <select onChange={(e) => setWaistInch(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                    <select onChange={(e) => setWaistInch(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
 
                                         <option >(انچ)</option>
                                         {
@@ -350,7 +350,7 @@ function UrduForm() {
                                 <div className="flex p-1 font-bold text-xs w-full items-center justify-between ">
 
                                     <div className="flex ">
-                                        <select onChange={(e) => setGheeraInch(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                        <select onChange={(e) => setGheeraInch(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
 
                                             <option >آدھا انچ</option>
                                             {
@@ -359,7 +359,7 @@ function UrduForm() {
                                                 ))
                                             }
                                         </select>
-                                        <select onChange={(e) => setGheera(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                        <select onChange={(e) => setGheera(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
                                             <option >(انچ)</option>
                                             {
                                                 data.map((user) => (
@@ -387,7 +387,7 @@ function UrduForm() {
                             </div>
                             <div className="flex font-bold text-xs  p-1 w-full items-center justify-between ">
                                 <div className="flex ">
-                                    <select onChange={(e) => setArmInch(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                    <select onChange={(e) => setArmInch(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
 
                                         <option >آدھا انچ</option>
                                         {
@@ -396,7 +396,7 @@ function UrduForm() {
                                             ))
                                         }
                                     </select>
-                                    <select onChange={(e) => setArm(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                    <select onChange={(e) => setArm(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
 
                                         <option >(انچ)</option>
                                         {
@@ -418,7 +418,7 @@ function UrduForm() {
                                         <div className="flex  items-center justify-between  font-bold text-xs ">
 
                                             <div className="flex  ">
-                                                <select onChange={(e) => setKaafwidth(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                <select onChange={(e) => setKaafwidth(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
 
                                                     <option >آدھا انچ</option>
                                                     {
@@ -427,7 +427,7 @@ function UrduForm() {
                                                         ))
                                                     }
                                                 </select>
-                                                <select onChange={(e) => setKaafInch(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                <select onChange={(e) => setKaafInch(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
                                                     <option >(انچ)</option>
                                                     {
                                                         data.map((user) => (
@@ -450,7 +450,7 @@ function UrduForm() {
 
 
                                             <div className="flex ">
-                                                <select onChange={(e) => setArmGoalInchInch(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                <select onChange={(e) => setArmGoalInchInch(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
 
                                                     <option >آدھا انچ</option>
                                                     {
@@ -459,7 +459,7 @@ function UrduForm() {
                                                         ))
                                                     }
                                                 </select>
-                                                <select onChange={(e) => setArmGoalInch(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                <select onChange={(e) => setArmGoalInch(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
                                                     <option >(انچ)</option>
                                                     {
                                                         data.map((user) => (
@@ -491,7 +491,7 @@ function UrduForm() {
                                             <div className="flex  items-center justify-between  font-bold text-xs ">
 
                                                 <div className="flex  ">
-                                                    <select onChange={(e) => setCollarInchCollor(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                    <select onChange={(e) => setCollarInchCollor(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
                                                         <option >آدھا انچ</option>
                                                         {
                                                             arr.map((user) => (
@@ -499,7 +499,7 @@ function UrduForm() {
                                                             ))
                                                         }
                                                     </select>
-                                                    <select onChange={(e) => setCollarInch(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                    <select onChange={(e) => setCollarInch(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
 
                                                         <option >(انچ)</option>
                                                         {
@@ -519,7 +519,7 @@ function UrduForm() {
 
                                                 <div className="flex ">
 
-                                                    <select onChange={(e) => setBaenInchBean(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                    <select onChange={(e) => setBaenInchBean(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
                                                         <option >آدھا انچ</option>
                                                         {
                                                             arr.map((user) => (
@@ -527,7 +527,7 @@ function UrduForm() {
                                                             ))
                                                         }
                                                     </select>
-                                                    <select onChange={(e) => setBaenInch(e.target.value)} className="light-orange border mx-1  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                    <select onChange={(e) => setBaenInch(e.target.value)} className="bg-gray-800  mx-1  p-3 mt-1 text-white rounded-lg font-bold " >
                                                         <option >(انچ)</option>
                                                         {
                                                             data.map((user) => (
@@ -550,7 +550,7 @@ function UrduForm() {
                                             <div className="flex items-center justify-between font-bold text-xs ">
 
                                                 <div className="flex ">
-                                                    <select onChange={(e) => setShalwarLenghtInchShalwar(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                    <select onChange={(e) => setShalwarLenghtInchShalwar(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
                                                         <option >آدھا انچ</option>
                                                         {
                                                             arr.map((user) => (
@@ -558,7 +558,7 @@ function UrduForm() {
                                                             ))
                                                         }
                                                     </select>
-                                                    <select onChange={(e) => setShalwarLenghtInch(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                    <select onChange={(e) => setShalwarLenghtInch(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
                                                         <option >(انچ)</option>
                                                         {
                                                             data.map((user) => (
@@ -577,7 +577,7 @@ function UrduForm() {
                                             <div className="flex items-center justify-between font-bold text-xs ">
 
                                                 <div className="flex ">
-                                                    <select onChange={(e) => setShalwarGheeraInchShalwar(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                    <select onChange={(e) => setShalwarGheeraInchShalwar(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
                                                         <option >آدھا انچ</option>
                                                         {
                                                             arr.map((user) => (
@@ -585,7 +585,7 @@ function UrduForm() {
                                                             ))
                                                         }
                                                     </select>
-                                                    <select onChange={(e) => setShalwarGheeraInch(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                    <select onChange={(e) => setShalwarGheeraInch(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
                                                         <option >(انچ)</option>
                                                         {
                                                             data.map((user) => (
@@ -604,7 +604,7 @@ function UrduForm() {
                                             <div className="flex items-center justify-between font-bold text-xs ">
 
                                                 <div className="flex ">
-                                                    <select onChange={(e) => setShalwarPainchaInchShalwar(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                    <select onChange={(e) => setShalwarPainchaInchShalwar(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
                                                         <option >آدھا انچ</option>
                                                         {
                                                             arr.map((user) => (
@@ -612,7 +612,7 @@ function UrduForm() {
                                                             ))
                                                         }
                                                     </select>
-                                                    <select onChange={(e) => setShalwarPainchaInch(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                    <select onChange={(e) => setShalwarPainchaInch(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
                                                         <option >(انچ)</option>
                                                         {
                                                             data.map((user) => (
@@ -637,7 +637,7 @@ function UrduForm() {
                                                 <div>
                                                     <div className="flex font-bold text-xs  p-1 w-full items-center justify-between ">
                                                         <div className="flex ">
-                                                            <select onChange={(e) => setFrontInch(e.target.value)} className="light-orange border   p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                            <select onChange={(e) => setFrontInch(e.target.value)} className="bg-gray-800    p-3 mt-1 text-white rounded-lg font-bold " >
                                                                 <option >آدھا انچ</option>
                                                                 {
                                                                     arr.map((user) => (
@@ -645,7 +645,7 @@ function UrduForm() {
                                                                     ))
                                                                 }
                                                             </select>
-                                                            <select onChange={(e) => setFront(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                            <select onChange={(e) => setFront(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
 
                                                                 <option >(انچ)</option>
                                                                 {
@@ -660,7 +660,7 @@ function UrduForm() {
                                                     </div>
                                                     <div className="flex font-bold text-xs  p-1 w-full items-center justify-between ">
                                                         <div className="flex ">
-                                                            <select onChange={(e) => setSideInch(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                            <select onChange={(e) => setSideInch(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
                                                                 <option >آدھا انچ</option>
                                                                 {
                                                                     arr.map((user) => (
@@ -668,7 +668,7 @@ function UrduForm() {
                                                                     ))
                                                                 }
                                                             </select>
-                                                            <select onChange={(e) => setSide(e.target.value)} className="light-orange border mx-1  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                            <select onChange={(e) => setSide(e.target.value)} className="bg-gray-800  mx-1  p-3 mt-1 text-white rounded-lg font-bold " >
 
                                                                 <option >(انچ)</option>
                                                                 {
@@ -683,7 +683,7 @@ function UrduForm() {
                                                     </div>
                                                     <div className="flex font-bold text-xs  p-1 w-full items-center justify-between ">
                                                         <div className="flex ">
-                                                            <select className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                            <select className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
                                                                 <option >آدھا انچ</option>
                                                                 {
                                                                     arr.map((user) => (
@@ -691,7 +691,7 @@ function UrduForm() {
                                                                     ))
                                                                 }
                                                             </select>
-                                                            <select onChange={(e) => setShalwar(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                            <select onChange={(e) => setShalwar(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
 
                                                                 <option >(انچ)</option>
                                                                 {

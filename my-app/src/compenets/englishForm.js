@@ -41,12 +41,18 @@ function EnglishForm() {
     const [Choras, setChoras] = useState('');
     const [Arm, setArm] = useState('');
     const [ArmInch, setArmInch] = useState('');
+    const [KaafRatio, setKaafRatio] = useState('');
     const [Kaaf, setKaaf] = useState('');
     const [KaafInch, setKaafInch] = useState('');
     const [Kaafwidth, setKaafwidth] = useState('');
+    const [KaafwidthInch, setKaafwidthInch] = useState('');
+    // 
+    const [ArmRation, setArmRation] = useState('');
     const [ArmGoal, setArmGoal] = useState('');
     const [ArmGoalInch, setArmGoalInch] = useState('');
-    const [ArmGoalInchInch, setArmGoalInchInch] = useState('');
+    const [ArmGoalAram, setArmGoalAram] = useState('');
+    const [ArmGoalAramInch, setArmGoalAramInch] = useState('');
+    // 
     const [Collar, setCollar] = useState('');
     const [CollarInch, setCollarInch] = useState('');
     const [CollarInchCollor, setCollarInchCollor] = useState('');
@@ -55,17 +61,13 @@ function EnglishForm() {
     const [BaenInchBean, setBaenInchBean] = useState('');
     const [ShalwarLenght, setShalwarLenght] = useState('');
     const [ShalwarLenghtInch, setShalwarLenghtInch] = useState('');
-    const [ShalwarLenghtInchShalwar, setShalwarLenghtInchShalwar] = useState('');
     const [ShalwarGheera, setShalwarGheera] = useState('');
     const [ShalwarGheeraInch, setShalwarGheeraInch] = useState('');
-    const [ShalwarGheeraInchShalwar, setShalwarGheeraInchShalwar] = useState('');
     const [ShalwarPaincha, setShalwarPaincha] = useState('');
     const [ShalwarPainchaInch, setShalwarPainchaInch] = useState('');
-    const [ShalwarPainchaInchShalwar, setShalwarPainchaInchShalwar] = useState('');
     const [Front, setFront] = useState('');
-    const [FrontInch, setFrontInch] = useState('');
+    const [DoubleSide, SetDoubleSide] = useState('');
     const [Side, setSide] = useState('');
-    const [SideInch, setSideInch] = useState('');
     const [Shalwar, setShalwar] = useState('');
 
     const [users, setUsers] = useState([]);
@@ -82,18 +84,14 @@ function EnglishForm() {
             serialNumber: SerialNumber,
             lenght: Lenght,
             lenghtInch: LenghtInch,
-            shalwarGheera: ShalwarGheera,
             shalwar: Shalwar,
-            shalwarGheeraInchShalwar: ShalwarGheeraInchShalwar,
-            shalwarPaincha: ShalwarPaincha,
             side: Side,
-            sideInch: SideInch,
             front: Front,
-            frontInch: FrontInch,
+            doubleSide: DoubleSide,
             shalwarPainchaInch: ShalwarPainchaInch,
+            shalwarPaincha: ShalwarPaincha,
             shalwarGheeraInch: ShalwarGheeraInch,
-            shalwarPainchaInchShalwar: ShalwarPainchaInchShalwar,
-            shalwarLenghtInchShalwar: ShalwarLenghtInchShalwar,
+            shalwarGheera: ShalwarGheera,
             shalwarLenghtInch: ShalwarLenghtInch,
             shalwarLenght: ShalwarLenght,
             baenInchBean: BaenInchBean,
@@ -102,16 +100,24 @@ function EnglishForm() {
             collarInchCollor: CollarInchCollor,
             collarInch: CollarInch,
             collar: Collar,
-            armGoalInchInch: ArmGoalInchInch,
-            armGoalInch: ArmGoalInch,
+
+            armRation: ArmRation,
             armGoal: ArmGoal,
-            kaafwidth: Kaafwidth,
-            kaafInch: KaafInch,
+            armGoalInch: ArmGoalInch,
+            armGoalAram: ArmGoalAram,
+            armGoalAramInch: ArmGoalAramInch,
+
+
+            kaafRatio: KaafRatio,
             kaaf: Kaaf,
+            kaafInch: KaafInch,
+            kaafwidth: Kaafwidth,
+            kaafwidthInch: KaafwidthInch,
+
             armInch: ArmInch,
             arm: Arm,
             choras: Choras,
-            Gool: Gool,
+            gool: Gool,
             gheeraInch: GheeraInch,
             gheera: Gheera,
             waistInch: WaistInch,
@@ -122,8 +128,6 @@ function EnglishForm() {
             neck: Neck,
             shoulderInch: ShoulderInch,
             shoulder: Shoulder,
-            front: Front,
-            frontInch: FrontInch,
             image: imageUrl,
 
         })
@@ -193,18 +197,18 @@ function EnglishForm() {
                     <form onSubmit={Handledata} className="p-2 text-gray-200">
                         <div className=" p-2 flex justify-end">
 
-                            <div className="flex items-center">
-                                <Link to="/urduForm">
-                                    <p className="w-3  hover:bg-yellow-600 border h-3 rounded-full"></p>
-                                </Link>
-                                <p className="mx-1 font-bold text-yellow-500">  اردو</p>
-
-                            </div>
                             <div className="flex items-center mx-4">
                                 <Link to="/englishForm">
                                     <p className="w-3 border bg-yellow-600   h-3 rounded-full"></p>
                                 </Link>
                                 <p className="mx-1 font-bold text-yellow-500">English</p>
+
+                            </div>
+                            <div className="flex items-center">
+                                <Link to="/urduForm">
+                                    <p className="w-3  hover:bg-yellow-600 border h-3 rounded-full"></p>
+                                </Link>
+                                <p className="mx-1 font-bold text-yellow-500">  اردو</p>
 
                             </div>
                         </div>
@@ -219,7 +223,7 @@ function EnglishForm() {
 
                             <p>Lenght:</p>
                             <div className="flex ">
-                                <select onChange={(e) => setLenght(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                <select onChange={(e) => setLenght(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
 
                                     <option >Inch</option>
                                     {
@@ -229,7 +233,7 @@ function EnglishForm() {
                                     }
 
                                 </select>
-                                <select onChange={(e) => setLenghtInch(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                <select onChange={(e) => setLenghtInch(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
 
 
                                     <option >1/2</option>
@@ -244,7 +248,7 @@ function EnglishForm() {
                         <div className="flex font-bold p-1 text-xs w-full items-center justify-between ">
                             <p>Shoulder:</p>
                             <div className="flex ">
-                                <select onChange={(e) => setShoulder(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                <select onChange={(e) => setShoulder(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
                                     <option >Inch</option>
                                     {
                                         data.map((user) => (
@@ -253,7 +257,7 @@ function EnglishForm() {
                                     }
 
                                 </select>
-                                <select onChange={(e) => setShoulderInch(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                <select onChange={(e) => setShoulderInch(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
 
 
                                     <option >1/2</option>
@@ -269,7 +273,7 @@ function EnglishForm() {
                         <div className="flex font-bold p-1 text-xs w-full items-center justify-between ">
                             <p>Neck:</p>
                             <div className="flex ">
-                                <select onChange={(e) => setNeck(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                <select onChange={(e) => setNeck(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
                                     <option >Inch</option>
                                     {
                                         data.map((user) => (
@@ -277,11 +281,11 @@ function EnglishForm() {
                                         ))
                                     }
                                 </select>
-                                <select onChange={(e) => setNeckInch(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                <select onChange={(e) => setNeckInch(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
 
 
-                                    <option >1/3</option>
                                     <option >1/2</option>
+                                    <option >1/3</option>
                                     <option >1/4</option>
                                     <option >1/5</option>
 
@@ -292,7 +296,7 @@ function EnglishForm() {
                         <div className="flex font-bold text-xs p-1 w-full items-center justify-between ">
                             <p>Chest:</p>
                             <div className="flex ">
-                                <select onChange={(e) => setChest(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                <select onChange={(e) => setChest(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
 
                                     <option >Inch</option>
                                     {
@@ -301,7 +305,7 @@ function EnglishForm() {
                                         ))
                                     }
                                 </select>
-                                <select onChange={(e) => setChestInch(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                <select onChange={(e) => setChestInch(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
 
 
                                     <option >1/2</option>
@@ -316,7 +320,7 @@ function EnglishForm() {
                         <div className="flex font-bold text-xs p-1 w-full items-center justify-between ">
                             <p>Waist:</p>
                             <div className="flex ">
-                                <select onChange={(e) => setWaist(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                <select onChange={(e) => setWaist(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
                                     <option >Inch</option>
                                     {
                                         data.map((user) => (
@@ -327,7 +331,7 @@ function EnglishForm() {
 
 
                                 </select>
-                                <select onChange={(e) => setWaistInch(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                <select onChange={(e) => setWaistInch(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
 
 
                                     <option >1/2</option>
@@ -344,7 +348,7 @@ function EnglishForm() {
 
                                 <p className="font-bold ml-4 text-yellow-500">Gheera:</p>
                                 <div className="flex ">
-                                    <select onChange={(e) => setGheera(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                    <select onChange={(e) => setGheera(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
                                         <option >Inch</option>
                                         {
                                             data.map((user) => (
@@ -352,7 +356,7 @@ function EnglishForm() {
                                             ))
                                         }
                                     </select>
-                                    <select onChange={(e) => setGheeraInch(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                    <select onChange={(e) => setGheeraInch(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
 
 
                                         <option >1/2</option>
@@ -368,11 +372,11 @@ function EnglishForm() {
                                 <form className="flex p-2 items-center ">
 
                                     <div className="flex items-center font-bold text-xs ml-8">
-                                        <input onChange={(e) => setGool(e.target.value)} className="mx-2" type="radio" name="fav_language" value="HTML" />
+                                        <input onChange={(e) => setGool(e.target.value)} className="mx-2" type="radio" value={Gool} />
                                         <p>Gool</p>
                                     </div>
                                     <div className="flex items-center font-bold text-xs mx-2">
-                                        <input onChange={(e) => setChoras(e.target.value)} className="mx-2" type="radio" name="fav_language" value="CSS" />
+                                        <input onChange={(e) => setChoras(e.target.value)} className="mx-2" type="radio" value={Choras} />
                                         <p>Choras</p>
                                     </div>
                                 </form>
@@ -381,7 +385,7 @@ function EnglishForm() {
                         <div className="flex font-bold text-xs  p-1 w-full items-center justify-between ">
                             <p>Arm:</p>
                             <div className="flex ">
-                                <select onChange={(e) => setArm(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                <select onChange={(e) => setArm(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
 
                                     <option >Inch</option>
                                     {
@@ -390,7 +394,7 @@ function EnglishForm() {
                                         ))
                                     }
                                 </select>
-                                <select onChange={(e) => setArmInch(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                <select onChange={(e) => setArmInch(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
 
 
                                     <option >1/2</option>
@@ -410,65 +414,115 @@ function EnglishForm() {
 
                                     <div className="flex  items-center justify-between  font-bold text-xs ">
                                         <div className="flex">
-                                            <input onChange={(e) => setKaaf(e.target.value)} className=" m-2" type="radio" name="fav_language" />
+                                            <input onChange={(e) => setKaafRatio(e.target.value)} className=" m-2 mt-5" type="radio" name="fav_language" />
                                             <div className="">
 
-                                                <p className="">Kaaf:</p>
+                                                <p className="my-2">Kaaf:</p>
                                                 <p>Kaaf-width</p>
                                             </div>
                                         </div>
-                                        <div className="flex  ">
-                                            <select onChange={(e) => setKaafInch(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
-                                                <option >Inch</option>
-                                                {
-                                                    data.map((user) => (
-                                                        <option >{user}</option>
-                                                    ))
-                                                }
+                                        <div className="  ">
+                                            <div className=" flex">
 
-                                            </select>
-                                            <select onChange={(e) => setKaafwidth(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                <select onChange={(e) => setKaaf(e.target.value)} className="bg-gray-800  mx-1 p-1 mt-1 text-gray-100 rounded-lg font-bold " >
+                                                    <option >Inch</option>
+                                                    {
+                                                        data.map((user) => (
+                                                            <option >{user}</option>
+                                                        ))
+                                                    }
+
+                                                </select>
+                                                <select onChange={(e) => setKaafInch(e.target.value)} className="bg-gray-800   p-1 mt-1 text-white rounded-lg font-bold " >
 
 
-                                                <option >1/2</option>
-                                                <option >1/3</option>
-                                                <option >1/4</option>
-                                                <option >1/5</option>
+                                                    <option >1/2</option>
+                                                    <option >1/3</option>
+                                                    <option >1/4</option>
+                                                    <option >1/5</option>
 
-                                            </select>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <select onChange={(e) => setKaafwidth(e.target.value)} className="bg-gray-800  mx-1 p-1 mt-1 text-gray-100 rounded-lg font-bold " >
+                                                    <option >Inch</option>
+                                                    {
+                                                        data.map((user) => (
+                                                            <option >{user}</option>
+                                                        ))
+                                                    }
+
+                                                </select>
+
+                                                <select onChange={(e) => setKaafwidthInch(e.target.value)} className="bg-gray-800   p-1 mt-1 text-white rounded-lg font-bold " >
+
+
+                                                    <option >1/2</option>
+                                                    <option >1/3</option>
+                                                    <option >1/4</option>
+                                                    <option >1/5</option>
+
+                                                </select>
+                                            </div>
+
                                         </div>
                                     </div>
-                                    <div className="flex items-center justify-between font-bold text-xs ">
-
+                                    <div className="flex  items-center justify-between mt-2 font-bold text-xs ">
                                         <div className="flex">
-                                            <input onChange={(e) => setArmGoal(e.target.value)} className=" m-2" type="radio" name="fav_language" value="HTML" />
+                                            <input onChange={(e) => setArmRation(e.target.value)} className=" m-2 mt-5" type="radio" name="fav_language" />
                                             <div className="">
+                                                <p className="my-2">Arm</p>
+                                                <p >Arm Goal</p>
 
-                                                <p>Arm</p>
-                                                <p>Arm Goal</p>
                                             </div>
                                         </div>
-                                        <div className="flex ">
-                                            <select onChange={(e) => setArmGoalInch(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
-                                                <option >Inch</option>
-                                                {
-                                                    data.map((user) => (
-                                                        <option >{user}</option>
-                                                    ))
-                                                }
+                                        <div className="  ">
+                                            <div className=" flex">
 
-                                            </select>
-                                            <select onChange={(e) => setArmGoalInchInch(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                <select onChange={(e) => setArmGoal(e.target.value)} className="bg-gray-800  mx-1 p-1 mt-1 text-gray-100 rounded-lg font-bold " >
+                                                    <option >Inch</option>
+                                                    {
+                                                        data.map((user) => (
+                                                            <option >{user}</option>
+                                                        ))
+                                                    }
+
+                                                </select>
+                                                <select onChange={(e) => setArmGoalInch(e.target.value)} className="bg-gray-800   p-1 mt-1 text-white rounded-lg font-bold " >
 
 
-                                                <option >1/2</option>
-                                                <option >1/3</option>
-                                                <option >1/4</option>
-                                                <option >1/5</option>
+                                                    <option >1/2</option>
+                                                    <option >1/3</option>
+                                                    <option >1/4</option>
+                                                    <option >1/5</option>
 
-                                            </select>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <select onChange={(e) => setArmGoalAram(e.target.value)} className="bg-gray-800  mx-1 p-1 mt-1 text-gray-100 rounded-lg font-bold " >
+                                                    <option >Inch</option>
+                                                    {
+                                                        data.map((user) => (
+                                                            <option >{user}</option>
+                                                        ))
+                                                    }
+
+                                                </select>
+
+                                                <select onChange={(e) => setArmGoalAramInch(e.target.value)} className="bg-gray-800   p-1 mt-1 text-white rounded-lg font-bold " >
+
+
+                                                    <option >1/2</option>
+                                                    <option >1/3</option>
+                                                    <option >1/4</option>
+                                                    <option >1/5</option>
+
+                                                </select>
+                                            </div>
+
                                         </div>
                                     </div>
+
                                 </form>
                             </div>
                         </div>
@@ -485,7 +539,7 @@ function EnglishForm() {
                                                 <p className="">Collar:</p>
                                             </div>
                                             <div className="flex  ">
-                                                <select onChange={(e) => setCollarInch(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                <select onChange={(e) => setCollarInch(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
 
                                                     <option >Inch</option>
                                                     {
@@ -495,7 +549,7 @@ function EnglishForm() {
                                                     }
 
                                                 </select>
-                                                <select onChange={(e) => setCollarInchCollor(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                <select onChange={(e) => setCollarInchCollor(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
 
 
                                                     <option >1/2</option>
@@ -508,13 +562,13 @@ function EnglishForm() {
                                         </div>
                                         <div className="flex items-center justify-between font-bold text-xs ">
                                             <div className="flex">
-                                                <input onChange={(e) => setBaen(e.target.value)} className="mx-2" type="radio" name="fav_language" value="CSS" />
+                                                <input onChange={(e) => setBaen(e.target.value)} className="mx-2" type="radio" name="fav_language" value={Baen} />
 
                                                 <p>Baen:</p>
                                             </div>
                                             <div className="flex ">
 
-                                                <select onChange={(e) => setBaenInch(e.target.value)} className="light-orange border mx-1  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                <select onChange={(e) => setBaenInch(e.target.value)} className="bg-gray-800  mx-1  p-3 mt-1 text-white rounded-lg font-bold " >
                                                     <option >Inch</option>
                                                     {
                                                         data.map((user) => (
@@ -523,7 +577,7 @@ function EnglishForm() {
                                                     }
 
                                                 </select>
-                                                <select onChange={(e) => setBaenInchBean(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                <select onChange={(e) => setBaenInchBean(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
                                                     <option >1/2</option>
                                                     <option >1/3</option>
                                                     <option >1/4</option>
@@ -538,12 +592,11 @@ function EnglishForm() {
 
                                         <div className="flex items-center justify-between font-bold text-xs ">
                                             <div className="flex">
-                                                <input onChange={(e) => setShalwarLenght(e.target.value)} className="mx-2" type="radio" name="fav_language" value="CSS" />
 
                                                 <p>Shalwar Lenght:</p>
                                             </div>
                                             <div className="flex ">
-                                                <select onChange={(e) => setShalwarLenghtInch(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                <select onChange={(e) => setShalwarLenght(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
                                                     <option >Inch</option>
                                                     {
                                                         data.map((user) => (
@@ -552,7 +605,7 @@ function EnglishForm() {
                                                     }
 
                                                 </select>
-                                                <select onChange={(e) => setShalwarLenghtInchShalwar(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                <select onChange={(e) => setShalwarLenghtInch(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
                                                     <option >1/2</option>
                                                     <option >1/3</option>
                                                     <option >1/4</option>
@@ -563,12 +616,11 @@ function EnglishForm() {
                                         </div>
                                         <div className="flex items-center justify-between font-bold text-xs ">
                                             <div className="flex">
-                                                <input onChange={(e) => setShalwarGheera(e.target.value)} className="mx-2" type="radio" name="fav_language" value="CSS" />
 
                                                 <p>Shalwar Gheera:</p>
                                             </div>
                                             <div className="flex ">
-                                                <select onChange={(e) => setShalwarGheeraInch(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                <select onChange={(e) => setShalwarGheera(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
                                                     <option >Inch</option>
                                                     {
                                                         data.map((user) => (
@@ -577,7 +629,7 @@ function EnglishForm() {
                                                     }
 
                                                 </select>
-                                                <select onChange={(e) => setShalwarGheeraInchShalwar(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                <select onChange={(e) => setShalwarGheeraInch(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
                                                     <option >1/2</option>
                                                     <option >1/3</option>
                                                     <option >1/4</option>
@@ -588,12 +640,11 @@ function EnglishForm() {
                                         </div>
                                         <div className="flex items-center justify-between font-bold text-xs ">
                                             <div className="flex">
-                                                <input onChange={(e) => setShalwarPaincha(e.target.value)} className="mx-2" type="radio" name="fav_language" value="CSS" />
 
                                                 <p>Shalwar Paincha:</p>
                                             </div>
                                             <div className="flex ">
-                                                <select onChange={(e) => setShalwarPainchaInch(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                <select onChange={(e) => setShalwarPaincha(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
                                                     <option >Inch</option>
                                                     {
                                                         data.map((user) => (
@@ -602,7 +653,7 @@ function EnglishForm() {
                                                     }
 
                                                 </select>
-                                                <select onChange={(e) => setShalwarPainchaInchShalwar(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                <select onChange={(e) => setShalwarPainchaInch(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
                                                     <option >1/2</option>
                                                     <option >1/3</option>
                                                     <option >1/4</option>
@@ -621,72 +672,46 @@ function EnglishForm() {
                                                 <div className="flex font-bold text-xs  p-1 w-full items-center justify-between ">
                                                     <p className="ml-8">Front:</p>
                                                     <div className="flex ">
-                                                        <select onChange={(e) => setFront(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                        <select onChange={(e) => setFront(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
 
-                                                            <option >Inch</option>
-                                                            {
-                                                                data.map((user) => (
-                                                                    <option >{user}</option>
-                                                                ))
-                                                            }
-                                                        </select>
-                                                        <select onChange={(e) => setFrontInch(e.target.value)} className="light-orange border   p-3 mt-1 text-gray-700 rounded-lg font-bold " >
-
-
-                                                            <option >1/2</option>
-                                                            <option >1/3</option>
-                                                            <option >1/4</option>
-                                                            <option >1/5</option>
+                                                            <option >Front</option>
+                                                            <option >Yes</option>
+                                                            <option >No</option>
 
                                                         </select>
+
                                                     </div>
 
                                                 </div>
                                                 <div className="flex font-bold text-xs  p-1 w-full items-center justify-between ">
                                                     <p className="ml-8">Side:</p>
                                                     <div className="flex ">
-                                                        <select onChange={(e) => setSide(e.target.value)} className="light-orange border mx-1  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
-
-                                                            <option >Inch</option>
-                                                            {
-                                                                data.map((user) => (
-                                                                    <option >{user}</option>
-                                                                ))
-                                                            }
-                                                        </select>
-                                                        <select onChange={(e) => setSideInch(e.target.value)} className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                        <select onChange={(e) => setSide(e.target.value)} className="bg-gray-800  mx-1  p-3 mt-1 text-white rounded-lg font-bold " >
 
 
-                                                            <option >1/2</option>
-                                                            <option >1/3</option>
-                                                            <option >1/4</option>
-                                                            <option >1/5</option>
+
+                                                            <option >Side</option>
+                                                            <option >Yes</option>
+                                                            <option >No</option>
 
                                                         </select>
+
                                                     </div>
 
                                                 </div>
                                                 <div className="flex font-bold text-xs  p-1 w-full items-center justify-between ">
-                                                    <p className="ml-8">Shalwar:</p>
+                                                    <p className="ml-8">Doubel Side Pockets:</p>
                                                     <div className="flex ">
-                                                        <select onChange={(e) => setShalwar(e.target.value)} className="light-orange border mx-1 p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                        <select onChange={(e) => SetDoubleSide(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
 
-                                                            <option >Inch</option>
-                                                            {
-                                                                data.map((user) => (
-                                                                    <option >{user}</option>
-                                                                ))
-                                                            }
-                                                        </select>
-                                                        <select className="light-orange border  p-3 mt-1 text-gray-700 rounded-lg font-bold " >
+                                                            <option >Doubel Side Pockets</option>
 
 
-                                                            <option >1/2</option>
-                                                            <option >1/3</option>
-                                                            <option >1/4</option>
-                                                            <option >1/5</option>
+                                                            <option >Yes</option>
+                                                            <option >No</option>
 
                                                         </select>
+
                                                     </div>
 
                                                 </div>

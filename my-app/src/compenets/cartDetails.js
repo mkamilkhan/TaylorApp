@@ -52,7 +52,7 @@ function CartDetails() {
                                         <div className="  mx-4 ">
                                             <div className=" ">
                                                 <div className="flex  justify-center">
-                                                    <img src={user.image} className="border-2  border-yellow-500  rounded-full  w-24 h-24"></img>
+                                                    <img src={user.image} className="border-4 p-2 border-yellow-500  rounded-full  w-24 h-24"></img>
                                                 </div>
                                             </div>
 
@@ -61,23 +61,23 @@ function CartDetails() {
                                                     <div className="flex  items-center">
                                                         <div>
                                                             <div className="flex items-center">
-                                                                <FeatherIcon className="p-1 border rounded-full light-orange-200 shadow-xl" icon="user" color="orange" />
+                                                                <FeatherIcon className="p-1 border mx-1 rounded-full light-orange-200 shadow-xl" icon="user" color="orange" />
 
                                                                 <p> Customer Name: </p>
                                                             </div>
-                                                            <p className="font-normal  p-2">{user.customerName}</p>
+                                                            <p className="font-bold text-gray-600  p-2">{user.customerName}</p>
 
                                                         </div>
                                                     </div>
                                                     <div className="flex  items-center">
                                                         <div>
-                                                            <div className="flex items-center">
-                                                                <FeatherIcon className="p-1 border rounded-full light-orange-200 shadow-xl" icon="bar-chart-2" color="orange" />
+                                                            <div className="flex items-center ">
+                                                                <FeatherIcon className="p-1 border mx-1 rounded-full light-orange-200 shadow-xl" icon="bar-chart-2" color="orange" />
 
                                                                 <p> SerialNumber </p>
 
                                                             </div>
-                                                            <p className="font-normal p-2">{user.serialNumber}</p>
+                                                            <p className="font-bold text-gray-600 p-2">{user.serialNumber}</p>
 
                                                         </div>
 
@@ -88,23 +88,23 @@ function CartDetails() {
                                                     <div className="  items-center">
                                                         <div className="flex  items-center">
 
-                                                            <FeatherIcon className="p-1 border rounded-full light-orange-200 shadow-xl" icon="phone" color="orange" />
+                                                            <FeatherIcon className="p-1 border mx-1 rounded-full light-orange-200 shadow-xl" icon="phone" color="orange" />
 
                                                             <p> Customer Phone: </p>
                                                         </div>
-                                                        <p className="font-normal p-1"> {user.customerNumber} </p>
+                                                        <p className="font-bold text-gray-600 p-1"> {user.customerNumber} </p>
                                                     </div>
                                                     {/* <p className="">{user.customerName}</p> */}
                                                     <div className="p-1  items-center justify-between  ">
                                                         <div className=" ">
                                                             <div className="flex items-center">
 
-                                                                <FeatherIcon className="p-1 border rounded-full light-orange-200 shadow-xl" icon="map-pin" color="orange" />
+                                                                <FeatherIcon className="p-1 border mx-1 rounded-full light-orange-200 shadow-xl" icon="map-pin" color="orange" />
 
                                                                 <p> Address: </p>
                                                             </div>
                                                         </div>
-                                                        <p className="font-normal  p-1">{user.address}</p>
+                                                        <p className="font-bold text-gray-600  p-1">{user.address}</p>
                                                     </div>
                                                 </div>
 
@@ -113,42 +113,45 @@ function CartDetails() {
                                         <div>
                                         </div>
                                         <div >
-                                            <div className="p-4 bg-yellow-500 flex border">
-                                                <p className="text-yellow-800 text-lg  font-bold">Measurements Of Customer</p>
+                                            <div className="p-2 justify-center flex my-2 ">
+                                                <p className="text-yellow-500 text-lg  font-bold">Measurements Of Customer</p>
                                             </div>
                                             <div>
-                                                <div className="flex text-xs justify-between mx-2 font-normal">
+                                                <div className="flex text-xs justify-between mx-2 font-bold text-gray-600">
                                                     <div className="flex p-2">
                                                         <p>Lenght:</p>
-                                                        <p>34 (Inch),1/2</p>
+                                                        <p className="mx-1 border  border-yellow-500  bg-yellow-500 text-white font-bold  rounded-md p-1">{user.lenght},(Inch){user.lenghtInch}</p>
                                                     </div>
                                                     <div className="flex p-2">
                                                         <p>Shoulder:</p>
 
-                                                        <p>34 (Inch),1/2</p>
+                                                        <p className="mx-1 border  border-yellow-500  bg-yellow-500 text-white font-bold  rounded-md p-1">{user.shoulder},(Inch){user.shoulderInch}</p>
+
                                                     </div>
                                                 </div>
-                                                <div className="flex text-xs justify-between mx-2 font-normal">
+                                                <div className="flex text-xs justify-between mx-2 font-bold text-gray-600">
                                                     <div className="flex p-2">
                                                         <p>Neck:</p>
 
-                                                        <p>34 (Inch),1/2</p>
+                                                        <p className="mx-2 border  border-yellow-500  bg-yellow-500 text-white font-bold  rounded-md p-1">{user.neck},(Inch){user.neckInch}</p>
                                                     </div>
                                                     <div className="flex p-2">
                                                         <p>Chest:</p>
 
 
-                                                        <p>34 (Inch),1/2</p>
+                                                        <p className="mx-2 border  border-yellow-500  bg-yellow-500 text-white font-bold  rounded-md p-1">{user.chest},(Inch){user.chestInch}</p>
+
                                                     </div>
                                                 </div>
 
                                                 <div className="p-2 flex ml-2 text-xs">
                                                     <p>Waist:</p>
-                                                    <p>34 (Inch),1/2</p>
+                                                    <p className="mx-2 border  border-yellow-500  bg-yellow-500 text-white font-bold  rounded-md p-1">{user.waist},(Inch){user.waistInch}</p>
+
 
                                                 </div>
                                                 <div className="p-2 ">
-                                                    <div className="p-2 font-normal border border-yellow-500  rounded-sm text-xs">
+                                                    <div className="p-2 font-bold text-gray-600 border border-yellow-500  rounded-md text-xs">
 
                                                         <div>
                                                             <p className="font-bold  text-yellow-500">Gheera:</p>
@@ -157,12 +160,13 @@ function CartDetails() {
                                                         <div className="justify-between p-2 flex">
                                                             <div className="flex items-center text-xs">
                                                                 <p>Gool:</p>
-                                                                <p>34 (Inch),1/2</p>
+                                                                <p className="mx-2 border  border-yellow-500  bg-yellow-500 text-white font-bold  rounded-md p-1">{user.gool},(inch)</p>
 
                                                             </div>
-                                                            <div className="flex text-xs">
-                                                                <p>Choras:</p>
-                                                                <p>34 (Inch),1/2</p>
+                                                            <div className="flex items-center text-xs">
+                                                                <p >Choras:</p>
+                                                                <p className="mx-2 border  border-yellow-500  bg-yellow-500 text-white font-bold  rounded-md p-1">{user.choras},(Inch)</p>
+
 
                                                             </div>
 
@@ -173,77 +177,86 @@ function CartDetails() {
                                                             <div className="flex m-2 items-center text-xs">
                                                                 <p>Arm:</p>
 
-                                                                <p>34 (Inch),1/2</p>
+                                                                <p className="mx-3 border  border-yellow-500  bg-yellow-500 text-white font-bold  rounded-md p-1">{user.arm},(Inch){user.armInch}</p>
+
 
                                                             </div>
-                                                            <div className=" p-2 font-normal border-b border-t border-yellow-500  rounded-sm text-xs flex">
+                                                            <div className=" p-2 font-bold text-gray-600 border-b border-t border-yellow-500  rounded-sm text-xs flex">
 
                                                                 <div className="">
-                                                                    <div className="flex p-1 text-xs">
+                                                                    <div className="flex p-1 items-center text-xs">
                                                                         <p>Kaaf:</p>
+                                                                        <p className="mx-3 border  border-yellow-500  bg-yellow-500 text-white font-bold  rounded-md p-1">{user.kaaf}(Inch){user.kaafInch}</p>
 
-                                                                        <p>34 (Inch),1/2</p>
 
                                                                     </div>
                                                                     <div className="flex p-1 items-center text-xs">
                                                                         <p>Kaaf-width</p>
 
-                                                                        <p>34 (Inch),1/2</p>
+                                                                        <p className="mx-3 border  border-yellow-500  bg-yellow-500 text-white font-bold  rounded-md p-1">{user.kaafwidth}(Inch){user.kaafwidthInch}</p>
+
 
                                                                     </div>
-                                                                </div>
-                                                                <div className="mx-2 ">
-                                                                    <div className="flex p-1 text-xs">
-                                                                        <p>,Arm Gool:</p>
+                                                                    <div className="">
+                                                                        <div className="flex p-1 items-center text-xs">
+                                                                            <p>Arm Gool:</p>
+                                                                            <p className="mx-3 border  border-yellow-500  bg-yellow-500 text-white font-bold  rounded-md p-1">{user.armGoal}(Inch){user.armGoalInch},</p>
 
-                                                                        {/* <p>34 (Inch),1/2</p> */}
+                                                                            {/* <p>34 (Inch),1/2</p> */}
 
-                                                                    </div>
-                                                                    <div className="flex p-1 items-center text-xs">
-                                                                        <p>,Arm Moori</p>
+                                                                        </div>
+                                                                        <div className="flex items-center p-1 text-xs">
+                                                                            <p>Arm Moori</p>
+                                                                            <p className="mx-3 border  border-yellow-500  bg-yellow-500 text-white font-bold  rounded-md p-1">{user.armGoalAram}(Inch){user.armGoalAramInch},</p>
 
-                                                                        {/* <p>34 (Inch),1/2</p> */}
+                                                                            {/* <p>34 (Inch),1/2</p> */}
 
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div className="justify-between p-4 font-normal border-b  border-yellow-500  rounded-sm text-xs flex">
+                                                        <div className="justify-between p-4 font-bold text-gray-600 border-b  border-yellow-500  rounded-sm text-xs flex">
 
-                                                            <div className="flex text-xs">
+                                                            <div className="flex items-center text-xs">
                                                                 <p>Collar:</p>
-                                                                <p>34 (Inch),1/2</p>
+                                                                <p className="mx-3 border  border-yellow-500  bg-yellow-500 text-white font-bold  rounded-md p-1">{user.collar}(Inch){user.collarInch},</p>
+
 
                                                             </div>
 
                                                             <div className="flex items-center text-xs">
                                                                 <p>Baen:</p>
-                                                                <p>34 (Inch),1/2</p>
+                                                                <p className="mx-3 border  border-yellow-500  bg-yellow-500 text-white font-bold  rounded-md p-1">{user.baen}(Inch){user.baenInch},</p>
+
 
                                                             </div>
                                                         </div>
-                                                        <div className="p-2 ">
-                                                            <div className="flex p-1 justify-between text-xs">
+                                                        <div className="p-2 font-bold text-gray-600">
+                                                            <div className="flex p-1  justify-between text-xs">
                                                                 <p>ShalwarLenght:</p>
-                                                                <p >34 (Inch),1/2</p>
+                                                                <p className="mx-3 border  border-yellow-500  bg-yellow-500 text-white font-bold  rounded-md p-1">{user.shalwarLenght}(Inch){user.shalwarLenghtInch},</p>
+
 
                                                             </div>
 
 
                                                             <div className="flex p-1 items-center justify-between text-xs">
                                                                 <p>ShalwarGheera:</p>
-                                                                <p>34 (Inch),1/2</p>
+                                                                <p className="mx-3 border  border-yellow-500  bg-yellow-500 text-white font-bold  rounded-md p-1">{user.shalwarGheera}(Inch){user.shalwarGheeraInch},</p>
+
 
                                                             </div>
                                                             <div className="flex p-1 justify-between text-xs">
                                                                 <p>ShalwarPaincha:</p>
-                                                                <p>34 (Inch),1/2</p>
+                                                                <p className="mx-3 border  border-yellow-500  bg-yellow-500 text-white font-bold  rounded-md p-1">{user.shalwarPaincha}(Inch){user.shalwarPainchaInch},</p>
+
 
                                                             </div>
 
 
                                                         </div>
-                                                        <div className=" p-4 font-normal border-b  border-yellow-500  rounded-sm">
+                                                        <div className=" p-4 font-bold text-gray-600 border-b  border-yellow-500  rounded-sm">
                                                             <div className="font-bold  text-yellow-500 ">
                                                                 <p>Pockets:</p>
 
@@ -251,22 +264,24 @@ function CartDetails() {
                                                             </div>
                                                             <div className="m-2">
                                                                 <div className="p-1 flex text-xs">
-                                                                    <p>Frond Pockets:</p>
-                                                                    <p className="mx-3 border border-yellow-500 w-4 h-4 pl-1 rounded-full ">1</p>
+                                                                    <p className="mt-2">Frond Pockets:</p>
+                                                                    <p className="mx-3 border border-yellow-500 text-yellow-500 font-bold w-8 h-8 pl-1 pt-2  rounded-full ">{user.front}</p>
 
                                                                 </div>
 
 
                                                                 <div className="p-1 flex items-center text-xs">
-                                                                    <p>Side Pockets:</p>
-                                                                    <p className="mx-3 border border-yellow-500 w-4 h-4 pl-1 rounded-full ">2</p>
+                                                                    <p className="mt-2">Side Pockets:</p>
+                                                                    <p className="mx-3 border border-yellow-500 text-yellow-500 font-bold w-8 h-8 pl-1 pt-2  rounded-full ">{user.side}</p>
+
 
 
                                                                 </div>
                                                                 <div className="p-1 flex text-xs">
-                                                                    <p className="mt-1">Double side Pockets:</p>
+                                                                    <p className="mt-2">Double side Pockets:</p>
 
-                                                                    <p className="mx-3 border border-yellow-500 w-6 h-6 pt-1 rounded-full ">yes</p>
+                                                                    <p className="mx-3 border border-yellow-500 text-yellow-500 font-bold w-8 h-8 pl-1 pt-2 rounded-full ">{user.doubleSide}</p>
+
 
 
                                                                 </div>
