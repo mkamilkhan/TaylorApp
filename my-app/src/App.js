@@ -1,5 +1,5 @@
 
-import CartDetails from './compenets/cartDetails';
+import EnglishDetails from './compenets/englishDetails';
 import Login from './pages/Login'
 import Home from './pages/home'
 import EnglishForm from './compenets/englishForm';
@@ -13,6 +13,7 @@ import OrderCard from './pages/orderCard';
 import OrderForm from '../src/pages/orderForm';
 import './tailwind.min.css';
 import OrderList from './compenets/orderList';
+import UrduDetails from './compenets/urduDetails';
 import {
   BrowserRouter as Router,
   Switch,
@@ -35,8 +36,8 @@ export default function App() {
             <Route path={"/register"} component={Register}>
               <Register />
             </Route>
-            <Route path={"/login"} component={Login}>
-              <Login />
+            <Route path={"/orderList"} component={OrderList}>
+              <OrderList />
             </Route>
 
             <Route path={"/home"} component={Home}>
@@ -60,11 +61,14 @@ export default function App() {
             <Route path={"/orderCard"} component={OrderCard}>
               <OrderCard />
             </Route>
+            <Route path={"/urduDetails/:id"} component={UrduDetails}>
+              <UrduDetails />
+            </Route>
             <Route path={"/orderForm"} component={OrderForm}>
               <OrderForm />
             </Route>
-            <Route path={"/cartDetails/:id"} component={CartDetails}>
-              <CartDetails />
+            <Route path={"/englishDetails/:id"} component={EnglishDetails}>
+              <EnglishDetails />
             </Route>
             <Route path="/">
               <OrderList />

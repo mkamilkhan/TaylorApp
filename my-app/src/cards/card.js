@@ -51,7 +51,7 @@ export default function Card() {
 
 
     return (
-        <div className=" bg-yellow-500 h-screen w-full pb-16 ">
+        <div className="  h-screen w-full pb-16 ">
             <div className="w-full flex justify-center  p-4">
                 <Searchbar onSearch={setSearchValue} value={searchValue} />
             </div>
@@ -59,16 +59,16 @@ export default function Card() {
             {
                 users.filter(filterNames).map((user) => (
 
-                    <div className="p-6 mx-6 font-bold rounded-xl m-4 shadow-xl fonts-size bg-white ">
+                    <div className="p-6 mx-6 font-bold rounded-xl m-4 shadow-xl fonts-size bg-gray-800 ">
                         <div>
-                            <FeatherIcon className="p-1 border rounded-full bg-gray-200 shadow-xl" icon="trash-2" color="red" onClick={() => delet(user.id)} />
+                            <FeatherIcon className="p-1 border rounded-full  shadow-xl" icon="trash-2" color="orange" onClick={() => delet(user.id)} />
                         </div>
                         <div className="flex w-full  my-3 justify-between">
 
                             <div className=" font-bold ">
                                 <div>
                                     <div >
-                                        <p className="p-1 bg-gray text-green-500 font-bold px-3 rounded-full">{user.progresss}</p>
+                                        <p className="p-1  text-yellow-500 font-bold px-3 rounded-full">{user.progresss}</p>
                                     </div>
                                 </div>
 
@@ -76,14 +76,14 @@ export default function Card() {
                             </div>
                             <div >
 
-                                <FeatherIcon icon="chevron-down" color="gray" onClick={() => setIsOpen(!isOpen)} />
+                                <FeatherIcon icon="chevron-down" color="orange" onClick={() => setIsOpen(!isOpen)} />
                                 {/* <img src={data.image} className="border-2 border-yellow-300 rounded-full  w-12 h-12"></img> */}
 
                             </div>
                         </div>
                         <div >
 
-                            <div className="flex my-2 rounded-md  light-orange  p-3  text-gray-600 justify-between">
+                            <div className="flex my-2 rounded-md    p-3  text-gray-400 justify-between">
                                 <div className="">
                                     <p>Name: {user.customer}</p>
                                 </div>
@@ -97,15 +97,15 @@ export default function Card() {
 
                             isOpen ?
                                 < div >
-                                    <div className="flex text-gray-600 justify-between ">
+                                    <div className="flex text-gray-400 justify-between ">
 
 
-                                        <div className="w-full rounded-md    light-orange p-3 flex">
+                                        <div className="w-full rounded-md     p-3 flex">
                                             <p className="w-1/2 ">Date: {user.dates}</p>
                                             <p className=" w-1/2 ">DueDate: {user.dueDates}</p>
                                         </div>
                                     </div>
-                                    <div className="flex my-2   rounded-md light-orange  p-3  text-gray-600 justify-between ">
+                                    <div className="flex my-2   rounded-md   p-3  text-gray-400 justify-between ">
                                         <div>
                                             <p>T/Cloths: {user.typeOfCloths}</p>
 
@@ -115,7 +115,7 @@ export default function Card() {
 
                                         </div>
                                     </div>
-                                    <div className="flex  rounded-md  light-orange  p-3  text-gray-600 justify-between  mt-4">
+                                    <div className="flex  rounded-md    p-3  text-gray-400 justify-between  mt-4">
 
                                         <div>
                                             <p>Total</p>

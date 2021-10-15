@@ -23,7 +23,7 @@ export default function Login() {
             setdata(data)
             console.log(data, "respose1")
             if (email, password) {
-                history.push("/urduForm")
+                history.push("/englishForm")
                 console.log(data, "respose2")
             }
             else {

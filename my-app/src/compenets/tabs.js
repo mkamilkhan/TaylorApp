@@ -14,9 +14,9 @@ function tabs() {
                 <div className="text-center text-xs   p-2  text-white font-bold">
                     <Link to="/urduForm">
 
-                        <FeatherIcon className="p-1    light-orange-200 shadow-xl" icon="scissors" color="orange" />
+                        <FeatherIcon className="p-1     shadow-xl" icon="scissors" color="white" />
 
-                        <p>Naap</p>
+                        <p className="text-gray-200 ">Naap</p>
 
                     </Link>
                 </div>
@@ -24,31 +24,31 @@ function tabs() {
                 <div className="text-center text-xs   p-2  text-white font-bold">
                     <Link to="/englishCard">
 
-                        <FeatherIcon className="p-1 ml-6  light-orange-200 shadow-xl" icon="book-open" color="orange" />
+                        <FeatherIcon className="p-1 ml-6  shadow-xl" icon="book-open" color="white" />
 
-                        <p>EnglishCard</p>
+                        <p className="text-gray-200 ">EnglishCard</p>
                     </Link>
                 </div>
 
                 <div className="text-center text-xs     p-2  text-white font-bold">
                     <Link to="/urduCard">
-                        <FeatherIcon className="p-1   ml-4  light-orange-200 shadow-xl" icon="shopping-bag" color="orange" />
+                        <FeatherIcon className="p-1   ml-4   shadow-xl" icon="shopping-bag" color="white" />
 
-                        <p>UrduCard</p>
+                        <p className="text-gray-200 ">UrduCard</p>
                     </Link>
                 </div>
                 <div className="text-center text-xs    p-2  text-white font-bold">
                     <Link to="/orderCard">
-                        <FeatherIcon className="p-1   ml-2 light-orange-200 shadow-xl" icon="book" color="orange" />
+                        <FeatherIcon className="p-1   ml-2  shadow-xl" icon="book" color="white" />
 
-                        <p>Order</p>
+                        <p className="text-gray-200 ">Orders</p>
                     </Link>
                 </div>
                 <div className="text-center text-xs    p-2  text-white font-bold">
                     <Link to="/orderForm">
-                        <FeatherIcon className="p-1   ml-4 light-orange-200 shadow-xl" icon="box" color="orange" />
+                        <FeatherIcon className="p-1   ml-4  shadow-xl" icon="box" color="white" />
 
-                        <p>OrdersForm</p>
+                        <p className="text-gray-200 ">OrdersForm</p>
                     </Link>
                 </div>
             </div>

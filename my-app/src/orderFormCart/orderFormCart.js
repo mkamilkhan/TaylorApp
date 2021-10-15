@@ -19,6 +19,7 @@ export default function OrderFormCart() {
     const [remainingAmount, setRemainingAmount] = useState('');
     const [progress, setProgress] = useState('');
     const [users, setUsers] = useState([0]);
+    const [use, setUse] = useState([0]);
     const [customerName, setCustomerName] = useState([]);
     // const [id, setIt] = useState('')s
 
@@ -61,10 +62,16 @@ export default function OrderFormCart() {
         });
     }
     useEffect(() => {
-        db.collection('naap').get().then((resp) => {
+        db.collection('englsihMeasurements').get().then((resp) => {
 
             const lists = resp.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
             setUsers(lists);
+            console.log(lists, "given lists")
+        })
+        db.collection('urduMeasurements').get().then((resp) => {
+
+            const lists = resp.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+            setUse(lists);
             console.log(lists, "given lists")
         })
 
@@ -72,94 +79,130 @@ export default function OrderFormCart() {
 
     return (
         <div>
-            <div className="h-screen fixed ">
-                <div className=" hightcart bg-white border-gray-300 shadow-xl rounded-xl  mx-4 mt-4  ">
+            <div className=" ">
+                <div className=" hightcart py-6 bg-gray-800 border-yellow-500 shadow-xl rounded-xl  mx-4 mt-4  ">
 
                     <div className="flex justify-between mt-4 ">
-                        <div className="flex justify-between">
-                            <form className="flex fonts-size font-bold">
+                        <div className="flex items-center justify-between">
+                            <form className=" fonts-size font-bold">
 
 
-                                <select value={customerName} onChange={(e) => setCustomerName(e.target.value)} className="w-48 border   rounded-md text-gray-700 light-orange  border-gray-300 fonts-size font-bold mx-2" >
-                                    <option> Name</option>
+                                <select value={customerName} onChange={(e) => setCustomerName(e.target.value)} className="w-48 border-b p-3 text-yellow-500 bg-gray-800 outline-none border-yellow-500 fonts-size font-bold mx-2" >
+                                    <option> EnglishOrders</option>
                                     {
 
-                                        users.map((user,) => (
+                                        users.map((user) => (
 
 
 
 
-                                            <option> {user.customer} </option>
+                                            <option> {user.customerName} </option>
                                         ))
                                     }
+
                                 </select>
-                                <div className="bg-yellow-700 mx-2 p-3 fonts-size text-white rounded-md text-center text-xs font-bold w-24">
-                                    <Link to="../pages/home">
-                                        <p onClick={logout}>
+                                <select value={customerName} onChange={(e) => setCustomerName(e.target.value)} className="w-48 border-b p-3 text-yellow-500 bg-gray-800 outline-none border-yellow-500 fonts-size font-bold mx-2" >
+                                    <option> UrduOrders</option>
+
+                                    {
+
+                                        use.map((user) => (
 
 
-                                            LogOut</p>
 
-                                    </Link>
 
-                                </div>
+                                            <option> {user.customerName} </option>
+                                        ))
+                                    }
+
+                                </select>
+
                             </form>
+                            <div className="bg-gray-800 h-11 border-yellow-500 rounded-md border mx-2 p-3 fonts-size text-white  text-center text-xs font-bold w-24">
+                                <Link to="/home
+                                ">
+                                    <p onClick={logout}>
+
+
+                                        LogOut</p>
+
+                                </Link>
+
+                            </div>
                         </div>
                     </div>
 
-                    <div className="flex mx-2 my-3  text-gray-700 fonts-size font-bold w-full">
+                    <div className="flex mx-2 my-3  text-gray-300 fonts-size font-bold w-full">
                         <div className="  ">
                             <p>Date</p>
-                            <input min="2021-01-01" max="2023-12-31" type="date" value={date} onChange={(e) => setDate(e.target.value)} className="border rounded-md fonts-size light-orange font-bold border-gray-300 p-3 text-gray-700 inputdate-Width " placeholder=""></input>
+                            <input min="2021-01-01" max="2023-12-31" type="date" value={date} onChange={(e) => setDate(e.target.value)} className="border-b outline-none  fonts-size bg-gray-800 font-bold border-yellow-500 p-3 text-yellow-500 inputdate-Width " placeholder=""></input>
                         </div>
-                        <div className=" text-gray-700 ">
+                        <div className=" text-gray-300 ">
                             <p className="ml-2 ">Due Date</p>
 
                             <input type="date" value={dueDate} onChange={(e) => setDueDate(e.target.value)} name="trip-start"
 
-                                min="2021-01-01" max="2023-12-31" className=" p-2 text-gray-700 rounded-md fonts-size font-bold light-orange border border-gray-300  inputdate-Width p-3 mx-2" ></input>
+                                min="2021-01-01" max="2023-12-31" className=" p-2 text-yellow-500 outline-none  fonts-size font-bold bg-gray-800 border-b border-yellow-500  inputdate-Width p-3 mx-2" ></input>
                         </div>
 
 
                     </div>
 
-                    <div className="text-gray-700">
-                        <div className="flex fonts-size font-bold items-center">
+                    <div className="text-gray-300">
+                        <div className="flex fonts-size w-full font-bold items-center">
 
-                            <form className="  mx-2">
-                                <p className="">Type of Cloth</p>
+                            <form className="  w-1/2 mx-2">
 
-                                <select value={typeOfCloth} onChange={(e) => setTypeOfCloth(e.target.value)} className="rounded-md fonts-size text-green-600 fonts-size text-xs font-bold border light-orange p-3 inputdate-Width">
 
-                                    <option >T/cloth</option>
-                                    <option>shirt</option>
-                                    <option>cloth</option>
+                                <select value={typeOfCloth} onChange={(e) => setTypeOfCloth(e.target.value)} className=" text-yellow-500 outline-none bg-gray-800  font-bold  border-yellow-500 bg-gray-800 p-3 ">
+
+                                    <option >TypeOfcloth</option>
+                                    <option>Shalwar/Qamees</option>
+
+                                    <option>Shirt</option>
+                                    <option>Cout</option>
+                                    <option>Waiscot</option>
+                                    <option>Paint</option>
+
 
                                 </select>
                             </form>
-                            <div>
+                            <div className="w-24">
+                                <select onChange={(e) => setNumberOfSuits(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-yellow-500 outline-none rounded-lg font-bold " >
 
-                                <p className="">Number of Suits</p>
+                                    <option >Number of Suits </option>
 
-                                <input value={numberOfSuits} onChange={(e) => setNumberOfSuits(e.target.value)} type="text" className="rounded-md border-gray-300 border  p-3 inputdate-Width"></input>
+                                    <option >1</option>
+                                    <option >2</option>
+                                    <option >3</option>
+                                    <option >4</option>
+                                    <option >5</option>
+                                    <option >6</option>
+                                    <option >7</option>
+                                    <option >8</option>
+                                    <option >9</option>
+                                    <option >10</option>
+
+
+
+                                </select>
+
+                                {/* <input value={numberOfSuits} onChange={(e) => setNumberOfSuits(e.target.value)} type="text" className=" border-b  desh border-yellow-500 bg-gray-800  p-3 w-full"></input> */}
                             </div>
                         </div>
 
                     </div>
-                    <div className="flex text-gray-700 fonts-size font-bold mx-2 my-3 w-full">
+                    <div className="flex text-gray-300 fonts-size font-bold mx-2 my-3 w-full">
                         <div className=" ">
-                            <p>Total Amount</p>
-                            <input value={totalAmount} onChange={(e) => setTotalAmount(e.target.value)} type="" className="rounded-md fonts-size font-bold border border-gray-300 p-3 w-20" placeholder=""></input>
+                            <input value={totalAmount} onChange={(e) => setTotalAmount(e.target.value)} type="" className=" fons-size font-bold border-b outline-none bg-gray-800 border-yellow-500 p-3 w-20" placeholder="Total Amount"></input>
                         </div>
                         <div className=" mx-1">
-                            <p>Paid Amount</p>
 
-                            <input value={paidAmount} onChange={(e) => setPaidAmount(e.target.value)} type="" className="rounded-md fonts-size font-bold border border-gray-300 p-3 w-20" placeholder=""></input>
+                            <input value={paidAmount} onChange={(e) => setPaidAmount(e.target.value)} type="" className=" fons-size font-bold border-b outline-none bg-gray-800 border-yellow-500 p-3 w-20" placeholder="Paid Amount"></input>
                         </div>
                         <div className=" mx-2">
-                            <p>Remaining Amount</p>
 
-                            <input value={remainingAmount} onChange={(e) => setRemainingAmount(e.target.value)} type="" className="rounded-md fonts-size font-bold border border-gray-300 p-3 w-32" placeholder=""></input>
+                            <input value={remainingAmount} onChange={(e) => setRemainingAmount(e.target.value)} type="" className=" fons-size font-bold border-b outline-none bg-gray-800 border-yellow-500 p-3 w-32" placeholder="Remaining Amount"></input>
 
                         </div>
 
@@ -169,7 +212,7 @@ export default function OrderFormCart() {
                         <form className="  mx-2">
 
 
-                            <select value={progress} onChange={(e) => setProgress(e.target.value)} className="rounded-md text-green-600 fonts-size text-xs font-bold border border-gray-300 light-orange p-3 inputdate-Width">
+                            <select value={progress} onChange={(e) => setProgress(e.target.value)} className="outline-none text-yellow-600 fonts-size text-xs font-bold border-b border-yellow-500 bg-gray-800 p-3 inputdate-Width">
 
                                 <option>selection</option>
                                 <option>In Progress</option>
@@ -179,10 +222,8 @@ export default function OrderFormCart() {
                             </select>
                         </form>
                         <Link to="/orderCard">
-                            {/* <FeatherIcon className="p-1   ml-2 light-orange-200 shadow-xl" icon="book" color="orange" /> */}
 
-                            {/* <p>Order</p> */}
-                            <button onClick={handledata} type="button" className="w-24 ml-2 fonts-size font-bold rounded-md border border-gray-300 orange text-white font-bold p-3">save</button>
+                            <button onClick={handledata} type="button" className="w-24 ml-2  text-xs font-bold hover:bg-yellow-500 border border-yellow-500  rounded-md text-white mt-2 font-bold p-2">save</button>
                         </Link>
 
                     </div>

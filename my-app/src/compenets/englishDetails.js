@@ -4,9 +4,9 @@ import React, { useEffect, useState } from 'react'
 import { db } from "../fire"
 import FeatherIcon from 'feather-icons-react';
 import Searchbar from '../pages/searchbar';
-import Tabs from '../compenets/tabs'
+import Tabs from './tabs'
 
-function CartDetails() {
+function EnglishDetails() {
 
 
     const [searchValue, setSearchValue] = useState("");
@@ -319,4 +319,4 @@ function CartDetails() {
     )
 }
 
-export default CartDetails
+export default EnglishDetails

@@ -18,8 +18,8 @@ import {
 import 'react-tabs/style/react-tabs.css';
 function UrduForm() {
     // const data = ["پینتیس", "پچاس", "انچاس", "اڑتالیس", "سینتالیس", "چھیالیس", "پینتالیس", "چوالیس", "تینتالیس", "بیالیس", "اکتالیس", "چالیس", "انتالیس", "اڑتیس", "سینتیس", "چھتیس", "ایک ", "دو", "تین", "چار", "پانچ", "چھ", "سات", "آٹھ", "نو", "دس", "گیارہ", "بارہ", "تیرہ", "چودہ", "پندرہ", "سولہ", "سترہ", "اٹھارہ", "انیس", "بیس", "اکیس", "بائیس", "تئیس", "چوبیس", "پچیس", "چھببیس", "ستائیس", "اٹھائیس", "انتیس", "تیس", "اکتیس", "بتیس", "تینتیس", "چونتیس"];
-    const data = [, "ایک ", "دو", "تین", "چار", "پانچ", "چھ", "سات", "آٹھ", "نو", "دس", "گیارہ", "بارہ", "تیرہ", "چودہ", "پندرہ", "سولہ", "سترہ", "اٹھارہ", "انیس", "بیس", "اکیس", "بائیس", "تئیس", "چوبیس", "پچیس", "چھببیس", "ستائیس", "اٹھائیس", "انتیس", "تیس", "اکتیس", "بتیس", "تینتیس", "چونتیس,", "پینتیس", "چھتیس", "سینتیس", "اڑتالیس", "انتالیس", "چالیس", "اکتالیس", "بیالیس", "تینتالیس", "چوالیس", "پینتالیس", "چھیالیس", "سینتالیس", "اڑتالیس", "انچاس", "پچاس",];
-    const arr = ["ایک", "ایک/دو", "ایک/تین", "ایک/چار", "ایک/پانچ", "ایک/چھ", "ایک/سات", "ایک/آٹھ"];
+    const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50];
+    const arr = ["1 / 2", "1 / 3", "1 / 4", "1 / 5"];
 
     const [CustomerNumber, setCustomerNumber] = useState('');
     const [CustomerName, setCustomerName] = useState('');
@@ -79,7 +79,7 @@ function UrduForm() {
     }
     const Handledata = () => {
 
-        db.collection("englsihMeasurements").add({
+        db.collection("urduMeasurements").add({
             customerName: CustomerName,
             customerNumber: CustomerNumber,
             address: Address,
@@ -140,7 +140,7 @@ function UrduForm() {
 
     }
     useEffect(() => {
-        db.collection('naap').onSnapshot((resp) => {
+        db.collection('urduMeasurements').onSnapshot((resp) => {
 
             const list = resp.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
             setUsers(list);
@@ -213,7 +213,7 @@ function UrduForm() {
                                 </div>
                             </div>
                             <div className="font-bold flex justify-end text-yellow-500 m-2 text-md">
-                                <p>پیمائش (انچ)</p>
+                                <p> قمیص پیمائش    </p>
 
                             </div>
 
@@ -247,6 +247,154 @@ function UrduForm() {
                                 <p>لمبائی</p>
 
                             </div>
+                            <form className=" border border-gray-700 p-2 rounded  items-center">
+                                <div className="flex font-bold text-xs  p-1 w-full items-center justify-between ">
+                                    <div className="flex ">
+                                        <select onChange={(e) => setArmInch(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
+
+                                            <option >آدھا انچ</option>
+                                            {
+                                                arr.map((user) => (
+                                                    <option >{user}</option>
+                                                ))
+                                            }
+                                        </select>
+                                        <select onChange={(e) => setArm(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
+
+                                            <option >(انچ)</option>
+                                            {
+                                                data.map((user) => (
+                                                    <option >{user}</option>
+                                                ))
+                                            }
+                                        </select>
+                                    </div>
+                                    <p>بازو</p>
+
+                                </div>
+
+                                <div className="flex items-center justify-between  font-bold text-xs ">
+
+                                    <div className="flex  ">
+                                        <select onChange={(e) => setKaafwidth(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
+
+                                            <option >آدھا انچ</option>
+                                            {
+                                                arr.map((user) => (
+                                                    <option >{user}</option>
+                                                ))
+                                            }
+                                        </select>
+                                        <select onChange={(e) => setKaafInch(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
+                                            <option >(انچ)</option>
+                                            {
+                                                data.map((user) => (
+                                                    <option >{user}</option>
+                                                ))
+                                            }
+
+                                        </select>
+                                    </div>
+                                    <div className="flex">
+                                        <div className="">
+
+                                            <p className="">کف:</p>
+
+                                        </div>
+                                        <input onChange={(e) => setKaaf(e.target.value)} className=" m-2" type="radio" name="fav_language" />
+                                    </div>
+                                </div>
+                                <div className="flex  items-center justify-between font-bold text-xs ">
+
+
+                                    <div className="flex ">
+                                        <select onChange={(e) => setArmGoalInchInch(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
+
+                                            <option >آدھا انچ</option>
+                                            {
+                                                arr.map((user) => (
+                                                    <option >{user}</option>
+                                                ))
+                                            }
+                                        </select>
+                                        <select onChange={(e) => setArmGoalInch(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
+                                            <option >(انچ)</option>
+                                            {
+                                                data.map((user) => (
+                                                    <option >{user}</option>
+                                                ))
+                                            }
+
+                                        </select>
+                                    </div>
+                                    <div className="flex">
+                                        <div className="">
+
+
+                                            <p>چیک پٹی</p>
+                                        </div>
+                                        <input onChange={(e) => setArmGoal(e.target.value)} className=" m-2" type="radio" name="fav_language" value="HTML" />
+                                    </div>
+                                </div>
+                            </form>
+                            <form className="border border-gray-700 p-2 rounded  my-2">
+
+                                <div className="flex  items-center justify-between  font-bold text-xs ">
+
+                                    <div className="flex  ">
+                                        <select onChange={(e) => setCollarInchCollor(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
+                                            <option >آدھا انچ</option>
+                                            {
+                                                arr.map((user) => (
+                                                    <option >{user}</option>
+                                                ))
+                                            }
+                                        </select>
+                                        <select onChange={(e) => setCollarInch(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
+
+                                            <option >(انچ)</option>
+                                            {
+                                                data.map((user) => (
+                                                    <option >{user}</option>
+                                                ))
+                                            }
+
+                                        </select>
+                                    </div>
+                                    <div className="flex ">
+                                        <p className="">کالر:</p>
+                                        <input onChange={(e) => setCollar(e.target.value)} className="mx-2" type="radio" name="fav_language" value="HTML" />
+                                    </div>
+                                </div>
+                                <div className="flex items-center justify-between font-bold text-xs ">
+
+                                    <div className="flex ">
+
+                                        <select onChange={(e) => setBaenInchBean(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
+                                            <option >آدھا انچ</option>
+                                            {
+                                                arr.map((user) => (
+                                                    <option >{user}</option>
+                                                ))
+                                            }
+                                        </select>
+                                        <select onChange={(e) => setBaenInch(e.target.value)} className="bg-gray-800  mx-1  p-3 mt-1 text-white rounded-lg font-bold " >
+                                            <option >(انچ)</option>
+                                            {
+                                                data.map((user) => (
+                                                    <option >{user}</option>
+                                                ))
+                                            }
+
+                                        </select>
+                                    </div>
+                                    <div className="flex">
+
+                                        <p>کٹ بین:</p>
+                                        <input onChange={(e) => setBaen(e.target.value)} className="mx-2" type="radio" name="fav_language" value="CSS" />
+                                    </div>
+                                </div>
+                            </form>
                             <div className="flex font-bold p-1 text-xs w-full items-center justify-between ">
                                 <div className="flex ">
                                     <select onChange={(e) => setShoulder(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
@@ -270,56 +418,9 @@ function UrduForm() {
                                     </select>
                                 </div>
 
-                                <p>کندھے</p>
+                                <p>چھوڑاںؑی</p>
                             </div>
 
-                            <div className="flex font-bold p-1 text-xs w-full items-center justify-between ">
-                                <div className="flex ">
-                                    <select onChange={(e) => setNeck(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
-                                        <option >آدھا انچ</option>
-                                        {
-                                            arr.map((user) => (
-                                                <option >{user}</option>
-                                            ))
-                                        }
-                                    </select>
-                                    <select onChange={(e) => setNeckInch(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
-                                        <option >(انچ)</option>
-                                        {
-                                            data.map((user) => (
-                                                <option >{user}</option>
-                                            ))
-                                        }
-
-                                    </select>
-                                </div>
-                                <p>گردن</p>
-
-                            </div>
-                            <div className="flex font-bold text-xs p-1 w-full items-center justify-between ">
-                                <div className="flex ">
-                                    <select onChange={(e) => setChest(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
-                                        <option >آدھا انچ</option>
-                                        {
-                                            arr.map((user) => (
-                                                <option >{user}</option>
-                                            ))
-                                        }
-                                    </select>
-                                    <select onChange={(e) => setChestInch(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
-
-
-                                        <option >(انچ)</option>
-                                        {
-                                            data.map((user) => (
-                                                <option >{user}</option>
-                                            ))
-                                        }
-                                    </select>
-                                </div>
-                                <p>سینہ</p>
-
-                            </div>
                             <div className="flex font-bold text-xs p-1 w-full items-center justify-between ">
                                 <div className="flex ">
                                     <select onChange={(e) => setWaist(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
@@ -343,7 +444,7 @@ function UrduForm() {
                                         }
                                     </select>
                                 </div>
-                                <p>کمر</p>
+                                <p>چھاتی</p>
 
                             </div>
                             <div className=" rounded-md">
@@ -368,7 +469,7 @@ function UrduForm() {
                                             }
                                         </select>
                                     </div>
-                                    <p className="font-bold ml-4 text-yellow-500">گھیرا</p>
+                                    <p className="font-bold ml-4 text-yellow-500">دامن</p>
 
                                 </div>
                                 <div >
@@ -376,176 +477,85 @@ function UrduForm() {
 
                                         <div className="flex items-center font-bold text-xs ml-8">
                                             <input onChange={(e) => setGool(e.target.value)} className="mx-2" type="radio" name="fav_language" value="HTML" />
-                                            <p>گول</p>
+                                            <p>گول دامن</p>
                                         </div>
                                         <div className="flex items-center font-bold text-xs mx-2">
                                             <input onChange={(e) => setChoras(e.target.value)} className="mx-2" type="radio" name="fav_language" value="CSS" />
-                                            <p>چوراس</p>
+                                            <p>چورس دامن</p>
                                         </div>
                                     </form>
                                 </div>
                             </div>
-                            <div className="flex font-bold text-xs  p-1 w-full items-center justify-between ">
-                                <div className="flex ">
-                                    <select onChange={(e) => setArmInch(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
 
-                                        <option >آدھا انچ</option>
-                                        {
-                                            arr.map((user) => (
-                                                <option >{user}</option>
-                                            ))
-                                        }
-                                    </select>
-                                    <select onChange={(e) => setArm(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
-
-                                        <option >(انچ)</option>
-                                        {
-                                            data.map((user) => (
-                                                <option >{user}</option>
-                                            ))
-                                        }
-                                    </select>
-                                </div>
-                                <p>بازو</p>
-
-                            </div>
-                            <div className=" border rounded-xl items-center ">
+                            <div className=" my-2 rounded-xl items-center ">
 
                                 <div className=" p-1">
 
-                                    <form className=" items-center">
+                                    <div className="flex font-bold p-1 text-xs w-full items-center justify-between ">
+                                        <div className="flex ">
+                                            <select onChange={(e) => setShoulder(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
 
-                                        <div className="flex  items-center justify-between  font-bold text-xs ">
+                                                <option >آدھا انچ</option>
+                                                {
+                                                    arr.map((user) => (
+                                                        <option >{user}</option>
+                                                    ))
+                                                }
+                                            </select>
+                                            <select onChange={(e) => setShoulderInch(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
 
-                                            <div className="flex  ">
-                                                <select onChange={(e) => setKaafwidth(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
 
-                                                    <option >آدھا انچ</option>
-                                                    {
-                                                        arr.map((user) => (
-                                                            <option >{user}</option>
-                                                        ))
-                                                    }
-                                                </select>
-                                                <select onChange={(e) => setKaafInch(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
-                                                    <option >(انچ)</option>
-                                                    {
-                                                        data.map((user) => (
-                                                            <option >{user}</option>
-                                                        ))
-                                                    }
-
-                                                </select>
-                                            </div>
-                                            <div className="flex">
-                                                <div className="">
-
-                                                    <p className="">قاف:</p>
-                                                    <p>قاف چوڑائی</p>
-                                                </div>
-                                                <input onChange={(e) => setKaaf(e.target.value)} className=" m-2" type="radio" name="fav_language" />
-                                            </div>
+                                                <option >(انچ)</option>
+                                                {
+                                                    data.map((user) => (
+                                                        <option >{user}</option>
+                                                    ))
+                                                }
+                                            </select>
                                         </div>
-                                        <div className="flex items-center justify-between font-bold text-xs ">
 
-
-                                            <div className="flex ">
-                                                <select onChange={(e) => setArmGoalInchInch(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
-
-                                                    <option >آدھا انچ</option>
-                                                    {
-                                                        arr.map((user) => (
-                                                            <option >{user}</option>
-                                                        ))
-                                                    }
-                                                </select>
-                                                <select onChange={(e) => setArmGoalInch(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
-                                                    <option >(انچ)</option>
-                                                    {
-                                                        data.map((user) => (
-                                                            <option >{user}</option>
-                                                        ))
-                                                    }
-
-                                                </select>
-                                            </div>
-                                            <div className="flex">
-                                                <div className="">
-
-                                                    <p>بازو</p>
-                                                    <p>آرم گول۔</p>
-                                                </div>
-                                                <input onChange={(e) => setArmGoal(e.target.value)} className=" m-2" type="radio" name="fav_language" value="HTML" />
-                                            </div>
-                                        </div>
-                                    </form>
+                                        <p>فرنٹ یٹی</p>
+                                    </div>
                                 </div>
+                            </div>
+                            <div className=" border-b border-gray-700 p-1">
+                                <div>
+                                    <div className="font-bold flex justify-end text-yellow-500">
+                                        <p>جیبیں:</p>
+                                    </div>
+                                    <div>
+                                        <div className="flex my-2 font-bold text-xs  p-1 w-full items-center justify-between ">
+                                            <div className="flex ">
+                                                <input onChange={(e) => setShalwarPaincha(e.target.value)} className="mx-2" type="radio" value="CSS" />
+
+                                            </div>
+                                            <p className="ml-8">سامنے جیب۔:</p>
+
+                                        </div>
+                                        <div className="flex font-bold text-xs  p-1 w-full items-center justify-between ">
+                                            <div className="flex ">
+                                                <input onChange={(e) => setShalwarPaincha(e.target.value)} className="mx-2" type="radio" value="CSS" />
+
+                                            </div>
+                                            <p className="ml-8">سائیڈ جیب</p>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex justify-end mx-2  mt-3 text-yellow-500 font-bold">
+
+                                <p>شلوار </p>
                             </div>
                             <div className="   items-center ">
 
                                 <div className=" p-1">
 
                                     <div className=" items-center">
-                                        <form>
 
-                                            <div className="flex  items-center justify-between  font-bold text-xs ">
 
-                                                <div className="flex  ">
-                                                    <select onChange={(e) => setCollarInchCollor(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
-                                                        <option >آدھا انچ</option>
-                                                        {
-                                                            arr.map((user) => (
-                                                                <option >{user}</option>
-                                                            ))
-                                                        }
-                                                    </select>
-                                                    <select onChange={(e) => setCollarInch(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
-
-                                                        <option >(انچ)</option>
-                                                        {
-                                                            data.map((user) => (
-                                                                <option >{user}</option>
-                                                            ))
-                                                        }
-
-                                                    </select>
-                                                </div>
-                                                <div className="flex ">
-                                                    <p className="">کالر:</p>
-                                                    <input onChange={(e) => setCollar(e.target.value)} className="mx-2" type="radio" name="fav_language" value="HTML" />
-                                                </div>
-                                            </div>
-                                            <div className="flex items-center justify-between font-bold text-xs ">
-
-                                                <div className="flex ">
-
-                                                    <select onChange={(e) => setBaenInchBean(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
-                                                        <option >آدھا انچ</option>
-                                                        {
-                                                            arr.map((user) => (
-                                                                <option >{user}</option>
-                                                            ))
-                                                        }
-                                                    </select>
-                                                    <select onChange={(e) => setBaenInch(e.target.value)} className="bg-gray-800  mx-1  p-3 mt-1 text-white rounded-lg font-bold " >
-                                                        <option >(انچ)</option>
-                                                        {
-                                                            data.map((user) => (
-                                                                <option >{user}</option>
-                                                            ))
-                                                        }
-
-                                                    </select>
-                                                </div>
-                                                <div className="flex">
-
-                                                    <p>بین:</p>
-                                                    <input onChange={(e) => setBaen(e.target.value)} className="mx-2" type="radio" name="fav_language" value="CSS" />
-                                                </div>
-                                            </div>
-                                        </form>
-
-                                        <form className="border p-1 my-2 rounded-xl">
+                                        <form className=" p-1 my-1 rounded-xl">
 
                                             <div className="flex items-center justify-between font-bold text-xs ">
 
@@ -570,8 +580,7 @@ function UrduForm() {
                                                 </div>
                                                 <div className="flex">
 
-                                                    <p>سلوار کی لمبائی:</p>
-                                                    <input onChange={(e) => setShalwarLenght(e.target.value)} className="mx-2" type="radio" name="fav_language" value="CSS" />
+                                                    <p>شلوار کی لمبائی</p>
                                                 </div>
                                             </div>
                                             <div className="flex items-center justify-between font-bold text-xs ">
@@ -597,122 +606,26 @@ function UrduForm() {
                                                 </div>
                                                 <div className="flex">
 
-                                                    <p>شلوار گھیرا۔:</p>
-                                                    <input onChange={(e) => setShalwarGheera(e.target.value)} className="mx-2" type="radio" name="fav_language" value="CSS" />
+                                                    <p>شلوار پانچھ۔</p>
                                                 </div>
                                             </div>
-                                            <div className="flex items-center justify-between font-bold text-xs ">
+                                            <div className="flex items-center justify-end font-bold text-xs ">
 
-                                                <div className="flex ">
-                                                    <select onChange={(e) => setShalwarPainchaInchShalwar(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
-                                                        <option >آدھا انچ</option>
-                                                        {
-                                                            arr.map((user) => (
-                                                                <option >{user}</option>
-                                                            ))
-                                                        }
-                                                    </select>
-                                                    <select onChange={(e) => setShalwarPainchaInch(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
-                                                        <option >(انچ)</option>
-                                                        {
-                                                            data.map((user) => (
-                                                                <option >{user}</option>
-                                                            ))
-                                                        }
 
-                                                    </select>
-                                                </div>
-                                                <div className="flex">
+                                                <div className="flex m-2">
 
-                                                    <p>شلوار پینچہ:</p>
+                                                    <p> شلوار جیب    </p>
                                                     <input onChange={(e) => setShalwarPaincha(e.target.value)} className="mx-2" type="radio" name="fav_language" value="CSS" />
                                                 </div>
                                             </div>
                                         </form>
-                                        <div className=" rounded-xl p-1">
-                                            <div>
-                                                <div className="font-bold flex justify-end text-yellow-500">
-                                                    <p>جیبیں:</p>
-                                                </div>
-                                                <div>
-                                                    <div className="flex font-bold text-xs  p-1 w-full items-center justify-between ">
-                                                        <div className="flex ">
-                                                            <select onChange={(e) => setFrontInch(e.target.value)} className="bg-gray-800    p-3 mt-1 text-white rounded-lg font-bold " >
-                                                                <option >آدھا انچ</option>
-                                                                {
-                                                                    arr.map((user) => (
-                                                                        <option >{user}</option>
-                                                                    ))
-                                                                }
-                                                            </select>
-                                                            <select onChange={(e) => setFront(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
 
-                                                                <option >(انچ)</option>
-                                                                {
-                                                                    data.map((user) => (
-                                                                        <option >{user}</option>
-                                                                    ))
-                                                                }
-                                                            </select>
-                                                        </div>
-                                                        <p className="ml-8">سامنے کی جیب۔:</p>
-
-                                                    </div>
-                                                    <div className="flex font-bold text-xs  p-1 w-full items-center justify-between ">
-                                                        <div className="flex ">
-                                                            <select onChange={(e) => setSideInch(e.target.value)} className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
-                                                                <option >آدھا انچ</option>
-                                                                {
-                                                                    arr.map((user) => (
-                                                                        <option >{user}</option>
-                                                                    ))
-                                                                }
-                                                            </select>
-                                                            <select onChange={(e) => setSide(e.target.value)} className="bg-gray-800  mx-1  p-3 mt-1 text-white rounded-lg font-bold " >
-
-                                                                <option >(انچ)</option>
-                                                                {
-                                                                    data.map((user) => (
-                                                                        <option >{user}</option>
-                                                                    ))
-                                                                }
-                                                            </select>
-                                                        </div>
-                                                        <p className="ml-8">سائیڈ جیب</p>
-
-                                                    </div>
-                                                    <div className="flex font-bold text-xs  p-1 w-full items-center justify-between ">
-                                                        <div className="flex ">
-                                                            <select className="bg-gray-800   p-3 mt-1 text-white rounded-lg font-bold " >
-                                                                <option >آدھا انچ</option>
-                                                                {
-                                                                    arr.map((user) => (
-                                                                        <option >{user}</option>
-                                                                    ))
-                                                                }
-                                                            </select>
-                                                            <select onChange={(e) => setShalwar(e.target.value)} className="bg-gray-800  mx-1 p-3 mt-1 text-white rounded-lg font-bold " >
-
-                                                                <option >(انچ)</option>
-                                                                {
-                                                                    data.map((user) => (
-                                                                        <option >{user}</option>
-                                                                    ))
-                                                                }
-                                                            </select>
-                                                        </div>
-                                                        <p className="ml-8">شلوار:</p>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div className="flex w-full items-center">
 
-                                <Link to="/englishCard" className="w-full">
+                                <Link to="/urduCard" className="w-full">
                                     <div className="  p-2  rounded-lg  text-center bg-yellow-500 m-4">
 
                                         <button className="font-bold p-2  " onClick={save}>شامل کریں</button>

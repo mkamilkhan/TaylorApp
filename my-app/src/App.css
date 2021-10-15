@@ -5,7 +5,10 @@
   font-size: 13px;
 }
 .fonts-size{
-  font-size: 11px;
+  font-size: 10px;
+}
+.fons-size{
+  font-size: 8px;
 }
 .bg-dark{
   background-color: #473c43;
@@ -38,7 +41,7 @@ width: 127px;
   height: 377px;
 }
 .panalcolor{
-background-color: #333333
+background-color: #ec9109ee
 ;
 }
 .bg-ratio :hover{

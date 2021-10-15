@@ -42,24 +42,30 @@ function EnglishCard() {
                 <div className="w-full flex justify-center  p-4">
                     <Searchbar onSearch={setSearchValue} value={searchValue} />
                 </div>
+                <div>
+                    <Link to="/englishForm">
+                        <FeatherIcon className="p-1 ml-6 border border-yellow-500 rounded-full light-orange-200 shadow-xl" icon="arrow-left" color="orange" />
+
+                    </Link>
+                </div>
                 {
 
                     users.filter(filterNames).map((user, i) => (
                         <div key={i} >
                             <div className="">
                                 <div className="relative ">
-                                    <div className="shadow-xl mx-8 rounded-xl  border mt-12 border h-56 border bg-white ">
+                                    <div className="shadow-xl mx-8 rounded-xl  border mt-12 border h-56 border bg-gray-800 ">
                                         <div className=" absolute  w-4/5  top-0">
                                             <div className="flex  justify-center">
                                                 <img src={user.image} className="border-2  border-yellow-500  rounded-full  w-16 h-16"></img>
                                             </div>
                                         </div>
                                         <div className="flex items-center my-6 justify-between mx-3">
-                                            <FeatherIcon className="p-1 border rounded-full light-orange-200 shadow-xl" icon="trash-2" color="orange" onClick={() => trash(user.id)} />
+                                            <FeatherIcon className="p-1 border rounded-full border-gray-700 shadow-xl" icon="trash-2" color="orange" onClick={() => trash(user.id)} />
                                             <Link to={`/cartDetails/:${user.id}`} exact>
                                                 <div>
 
-                                                    <FeatherIcon className="p-1 border rounded-full light-orange-200 shadow-xl" icon="file-minus" color="orange" />
+                                                    <FeatherIcon className="p-1 border rounded-full border-gray-700 shadow-xl" icon="file-minus" color="orange" />
                                                 </div>
                                             </Link>
 
@@ -67,36 +73,36 @@ function EnglishCard() {
                                         <div className=" mt-4  font-bold text-xs text-gray-700">
                                             <div className="p-1 items-center justify-between mx-3 flex  ">
                                                 <div className="flex  items-center">
-                                                    <FeatherIcon className="p-1 mx-1 border rounded-full light-orange-200 shadow-xl" icon="user" color="orange" />
+                                                    <FeatherIcon className="p-1 mx-1 border rounded-full border-gray-700 shadow-xl" icon="user" color="orange" />
 
-                                                    <p> Customer Name: </p>
+                                                    <p className="text-gray-400"> Customer Name: </p>
                                                 </div>
-                                                <p className="font-normal">{user.customerName}</p>
+                                                <p className="font-normal text-gray-400">{user.customerName}</p>
                                             </div>
                                             <div className="p-1 flex  items-center justify-between mx-3 ">
                                                 <div className="flex  items-center">
-                                                    <FeatherIcon className="p-1 mx-1 border rounded-full light-orange-200 shadow-xl" icon="edit-2" color="orange" />
+                                                    <FeatherIcon className="p-1 mx-1 border rounded-full border-gray-700 shadow-xl" icon="edit-2" color="orange" />
 
-                                                    <p> SerialNumber </p>
+                                                    <p className="text-gray-400"> SerialNumber </p>
                                                 </div>
-                                                <p className="font-normal">{user.serialNumber}</p>
+                                                <p className="font-normal text-gray-400">{user.serialNumber}</p>
                                             </div>
                                             <div className="p-1 flex items-center justify-between mx-3 ">
                                                 <div className="flex  items-center">
-                                                    <FeatherIcon className="p-1 mx-1 border rounded-full light-orange-200 shadow-xl" icon="phone" color="orange" />
+                                                    <FeatherIcon className="p-1 mx-1 border rounded-full border-gray-700 shadow-xl" icon="phone" color="orange" />
 
-                                                    <p> Customer Number: </p>
+                                                    <p className="text-gray-400"> Customer Number: </p>
                                                 </div>
                                                 {/* <p className="">{user.customerName}</p> */}
-                                                <p className="font-normal"> {user.customerNumber} </p>
+                                                <p className="font-normal text-gray-400"> {user.customerNumber} </p>
                                             </div>
                                             <div className="p-1 flex items-center justify-between mx-3 ">
                                                 <div className="flex  items-center">
-                                                    <FeatherIcon className="p-1 mx-1 border rounded-full light-orange-200 shadow-xl" icon="map-pin" color="orange" />
+                                                    <FeatherIcon className="p-1 mx-1 border rounded-full border-gray-700 shadow-xl" icon="map-pin" color="orange" />
 
-                                                    <p> Address: </p>
+                                                    <p className="text-gray-400"> Address: </p>
                                                 </div>
-                                                <p className="font-normal">{user.address}</p>
+                                                <p className="font-normal text-gray-400">{user.address}</p>
                                             </div>
                                         </div>
                                     </div>
